@@ -17,7 +17,14 @@ This is type of research is extremely important to all institutions to help prot
 ## Proposed project timeline
 ![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/Screen%20Shot%202018-02-07%20at%2010.32.00%20AM.png)
 ## Risk list
-
+|Risk Name (value)  | Impact     | Likelihood | Description |
+|-------------------|------------|------------|-------------|
+|CVEs not found (12) | 6 | 2 | The project will not work if relevant CVEs cannot be found for the Enterprise VPN solutions that have been chosen.  |
+|Programming issues (64) | 8 | 8 | Any programming issues with the HTML webpage or the Python program will slow progress.  |
+|No vulnerability overlap in timeline (56) | 8 | 7 | Problems could arise if the vulnerability timeline is not showing overlaps properly.  |
+|Unable to find exploit and patch dates (63) | 9 | 7 | If exploit and patch dates cannot be found or are incorrect, the final results in the timeline will be off.  |
+|Problems gathering data (18) | 6 | 3 | Any major issues scraping databases for information will not allow for the rest of the project to continue until data can be retrieved.  |
+|Team member availability (15) | 5 | 3 | Team members must be able to coordinate appropriate times to meet otherwise progress will be slowed.  |
 ## Project Methodology
 
 ## Resources/Technology needed
