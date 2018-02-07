@@ -15,7 +15,7 @@ This is type of research is extremely important to all institutions to help prot
 
 
 ## Proposed project timeline
-[[https://github.com/MLHale/insure-layered-solutions/wiki/gantchart]]
+![]https://cybr-4580-8950.slack.com/messages/C8PNNAG7P/
 ## Risk list
 
 ## Project Methodology
