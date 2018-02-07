@@ -23,4 +23,4 @@ This is type of research is extremely important to all institutions to help prot
 ## Resources/Technology needed
 
 ## First Sprint Plan
-
+![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/Screen%20Shot%202018-02-07%20at%204.13.49%20PM.png)
