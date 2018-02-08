@@ -15,7 +15,7 @@ This is type of research is extremely important to all institutions to help prot
 
 
 ## Proposed project timeline
-![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/Screen%20Shot%202018-02-07%20at%2010.32.00%20AM.png)
+![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/ProposedProjectTimeline.png)
 ## Risk list
 |Risk Name (value)  | Impact     | Likelihood | Description |
 |-------------------|------------|------------|-------------|
@@ -30,4 +30,4 @@ First vital step to this research project will be to define a set of enterprise 
 ## Resources/Technology needed
 
 ## First Sprint Plan
-![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/Screen%20Shot%202018-02-07%20at%204.13.49%20PM.png)
+![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/ProposedProjectTimeline.png)
