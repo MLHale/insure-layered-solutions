@@ -48,5 +48,6 @@ First vital step to this research project will be to define a set of enterprise 
 |Web server | No | Joe White | A Web server with an appropriate software stack will be needed to host the website. |
 |Database server | No | Joe White | A database server will be needed to store the data that is being collected from the NVD and CVE databases. |
 |Virtual machines | No | Brian Mellon | Virtual environments will be needed to test VPNs and develop the web server. |
+|Building Web App | YES | David Phillips | Coding the web application that will integrate with the database. |
 ## First Sprint Plan
 ![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/ProposedProjectTimeline.png)
