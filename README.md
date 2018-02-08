@@ -3,7 +3,7 @@ The Impact of Known Vulnerabilities on Layered Solutions Team Project
 ## Executive Project Summary
 The Impact of Known Vulnerabilities on Layered Solutions
 
-This project is geared toward determining the security benefit of provided by a layered solution - for example, two VPNs, one tunneled within the other.  
+This project is geared toward determining the security benefit of provided by a layered solution.  
 
 Specially:
 
