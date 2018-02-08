@@ -15,7 +15,7 @@ This is type of research is extremely important to all institutions to help prot
 
 
 ## Proposed project timeline
-![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/ProposedProjectTimeline.png)
+![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/GeneralGant.png)
 ## Risk list
 |Risk Name (value)  | Impact     | Likelihood | Description |
 |-------------------|------------|------------|-------------|
