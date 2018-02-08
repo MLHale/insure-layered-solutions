@@ -3,7 +3,7 @@ The Impact of Known Vulnerabilities on Layered Solutions Team Project
 ## Executive Project Summary
 The Impact of Known Vulnerabilities on Layered Solutions
 
-This project is geared toward determining the security benefit of provided by a layered solution.  
+This project is geared toward determining the security benefit of provided by a layered solution - for example, two VPNs, one tunneled within the other.  
 
 Specially:
 
@@ -43,6 +43,10 @@ This is type of research is extremely important to all institutions to help prot
 ## Project Methodology
 First vital step to this research project will be to define a set of enterprise vpn solutions.  Once the vpn solutions have been defined, a review of the National Vulnerability database and Common vulnerabilities and exposes database can be conducted.  In order to effectively extract data from the database the CIRCL CVE Search API will be utilized to collect as much data as possible about our VPN solutions and their vulnerabilities. A python script written by Matt Erasmus found on the CIRCL website appears to be the best option for collecting vulnerabilities separated by vendor. The data will need to be translated out of the JSON formatted output and another python script will be used in order to begin evaluating the vulnerabilities gathered and determine if they are relevant to this project. This evaluation will include searching for confirmed exploits, determining the impact on the layered solution, and collecting patch dates (if available). One definite possibility will be that one or more of our selected VPN providers may not have enough data available for inclusion in this project. This would result in removal from the vendor list.  Once the data set has been assembled and confident in the results, manual construction can begin by plotting the vulnerabilities on a timeline for each vendor and then compiling those timelines into a master. While compiling the timeline, programming will begin for our webpage which will be used it to display a vulnerability timeline based upon the selected vendors and search parameters.  Python and the Django web framework will be used for this site, barring any limitations found in the Django framework. The data will be held by a sql database.  The final step is to write documentation on the results and the webpage. Additionally, analysis of the overall exploitability of a layered VPN solution will be done and compared it to the vendor solutions. 
 ## Resources/Technology needed
-Web server with appropriate software stack
+|Resource  | Dr. Hale needed? | Investigating Team member | Description |
+|-------------------|---------|---------------------------|-------------|
+|Web server | No | Joe White | A Web server with an appropriate software stack will be needed to host the website. |
+|Database server | No | Joe White | A database server will be needed to store the data that is being collected from the NVD and CVE databases. |
+|Virtual machines | No | Brian Mellon | Virtual environments will be needed to test VPNs and develop the web server. |
 ## First Sprint Plan
 ![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/ProposedProjectTimeline.png)
