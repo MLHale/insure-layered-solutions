@@ -17,9 +17,16 @@ This is type of research is extremely important to all institutions to help prot
 ## Proposed project timeline
 ![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/Screen%20Shot%202018-02-07%20at%2010.32.00%20AM.png)
 ## Risk list
-
+|Risk Name (value)  | Impact     | Likelihood | Description |
+|-------------------|------------|------------|-------------|
+|CVEs not found (12) | 6 | 2 | The project will not work if relevant CVEs cannot be found for the Enterprise VPN solutions that have been chosen.  |
+|Programming issues (64) | 8 | 8 | Any programming issues with the HTML webpage or the Python program will slow progress.  |
+|No vulnerability overlap in timeline (56) | 8 | 7 | Problems could arise if the vulnerability timeline is not showing overlaps properly.  |
+|Unable to find exploit and patch dates (63) | 9 | 7 | If exploit and patch dates cannot be found or are incorrect, the final results in the timeline will be off.  |
+|Problems gathering data (18) | 6 | 3 | Any major issues scraping databases for information will not allow for the rest of the project to continue until data can be retrieved.  |
+|Team member availability (15) | 5 | 3 | Team members must be able to coordinate appropriate times to meet otherwise progress will be slowed.  |
 ## Project Methodology
-
+First vital step to this research project will be to define a set of enterprise vpn solutions.  Once the vpn solutions have been defined, a review of the National Vulnerability database and Common vulnerabilities and exposes database can be conducted.  In order to effectively extract data from the database the CIRCL CVE Search API will be utilized to collect as much data as possible about our VPN solutions and their vulnerabilities. A python script written by Matt Erasmus found on the CIRCL website appears to be the best option for collecting vulnerabilities separated by vendor. The data will need to be translated out of the JSON formatted output and another python script will be used in order to begin evaluating the vulnerabilities gathered and determine if they are relevant to this project. This evaluation will include searching for confirmed exploits, determining the impact on the layered solution, and collecting patch dates (if available). One definite possibility will be that one or more of our selected VPN providers may not have enough data available for inclusion in this project. This would result in removal from the vendor list.  Once the data set has been assembled and confident in the results, manual construction can begin by plotting the vulnerabilities on a timeline for each vendor and then compiling those timelines into a master. While compiling the timeline, programming will begin for our webpage which will be used it to display a vulnerability timeline based upon the selected vendors and search parameters.  Python and the Django web framework will be used for this site, barring any limitations found in the Django framework. The data will be held by a sql database.  The final step is to write documentation on the results and the webpage. Additionally, analysis of the overall exploitability of a layered VPN solution will be done and compared it to the vendor solutions. 
 ## Resources/Technology needed
 
 ## First Sprint Plan
