@@ -50,7 +50,7 @@ This is type of research is extremely important to all institutions to help prot
 | CVEs not found (12) | 6 | 2 | The project will not work if relevant CVEs cannot be found for the Enterprise VPN solutions that have been chosen |
 
 ## Project Methodology
-## Literature Review
+### Literature Review
 Arora, A., Krishnan, R., Telang, R., & Yang, Y. (2006). An empirical analysis of software vendors' patching behavior: Impact of vulnerability disclosure. ICIS 2006 Proceedings, 22.
 
 Cohen, F. (1999). Simulating cyber attacks, defences, and consequences. Computers & Security, 18(6), 479-518.
@@ -85,7 +85,7 @@ W. A. Arbaugh, W. L. Fithen and J. McHugh, "Windows of vulnerability: a case stu
 
 Wen, S., Zhou, W., Zhang, J., Xiang, Y., Zhou, W., Jia, W., & Zou, C. C. (2014). Modeling and analysis on the propagation dynamics of modern email malware. IEEE transactions on dependable and secure computing, 11(4), 361-374.
 
-## Technical Plan
+### Technical Plan
 First vital step to this research project will be to define a set of enterprise vpn solutions.  Once the vpn solutions have been defined, a review of the National Vulnerability database and Common vulnerabilities and exposes database can be conducted.  In order to effectively extract data from the database the CIRCL CVE Search API will be utilized to collect as much data as possible about our VPN solutions and their vulnerabilities. A python script written by Matt Erasmus found on the CIRCL website appears to be the best option for collecting vulnerabilities separated by vendor. The data will need to be translated out of the JSON formatted output and another python script will be used in order to begin evaluating the vulnerabilities gathered and determine if they are relevant to this project. This evaluation will include searching for confirmed exploits, determining the impact on the layered solution, and collecting patch dates (if available). One definite possibility will be that one or more of our selected VPN providers may not have enough data available for inclusion in this project. This would result in removal from the vendor list.  Once the data set has been assembled and confident in the results, manual construction can begin by plotting the vulnerabilities on a timeline for each vendor and then compiling those timelines into a master. While compiling the timeline, programming will begin for our webpage which will be used it to display a vulnerability timeline based upon the selected vendors and search parameters.  Python and the Django web framework will be used for this site, barring any limitations found in the Django framework. The data will be held by a sql database.  The final step is to write documentation on the results and the webpage. Additionally, analysis of the overall exploitability of a layered VPN solution will be done and compared it to the vendor solutions. 
 
 
