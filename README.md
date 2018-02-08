@@ -1,28 +1,6 @@
 # Insure-layered-solutions
 The Impact of Known Vulnerabilities on Layered Solutions Team Project
 ## Executive Project Summary
-**Problem Statement**
-
-This project is geared toward determining the security benefit of provided by a layered solution - for example, two VPNs, one tunneled within the other.  
-
-Specially:
-
-* Select two common (widely used) products that could be used to provide the two layers - routers, firewalls, VPN products, etc.
-* Investigate the timeline of known vulnerabilities for those products, distinguishing between the time the vulnerability becomes known and the time it becomes patched (realizing that in many cases vulnerabilities are not publically known until the vendor announces a patch).  Limit oneself to those vulnerabilities that could have reasonably resulted in compromise of the security of the layer.  It is not necessary to prove that assertion, but be able to defend it based upon the nature of the vulnerability.  (e.g., results in root access, could allow one to disable a key service, weakens the crypto, etc.)
-* Assume one week to apply a patch in the field once a patch is released as a starting point, but it is desirable to be able to adjust this value.
-* Place the vulnerability timeline for the two VPNs on a common timeline and identify those instances where two VPN layers were vulnerable at the same.
-* Separately, identify opportunities the adversary may have had to compromise the solution by using vulnerabilities that don't line up in time, but that could have afforded the opportunity to gain access to a single layer and simply wait for a vulnerability to become known in the second.  Vulnerabilities which allow the attacker to install malicious code on the device would be a prime example of the manner by which an attacker could take advantage of vulnerability in one layer, gain a foothold, and then wait for a vulnerability to become known in the second.
-* To simplify the task, assume no monitoring for adversarial actions - in other words, the bad guys can act without being detected.  Also assume that the adversaries do not utilize zero day vulnerabilities which they themselves have discovered and that they do not create zero-day opportunities via such avenues as supply-chain attacks.
-* Another desirable trait if time allows:  publically available reports may detail the amount of time it takes from a vulnerability being known to the availability of exploit code.  This may be a particularly short timeframe for patched vulnerabilities - analysis of the patch allows the attacker a method of determining just what function in a software package is faulted.    It would be desirable to include this value into the analysis in determining the susceptibility of the layered solution.
-
-**Goals and Objectives**
-
-* Extract data from NVD and CVE databases
-* Model vulnerabilities, exploits, patches, and patch windows
-* Construct timeline
-* Code webpage
-* Build database
-* Correlate data
 
 The purpose of layered solutions is to give the ability of an institution to use layered commercial products to deliver access to their critical data while maintaining security.  Traditionally, government devices were designed and certified to be used to access their most sensitive data.  This is extremely costly and time consuming.  Recently, the government has been reviewing proposals which would utilize commercial devices to deliver the same results as the government devices.  To increase the governments assurance, the government is attempting to ascertain if the use of multiple or layered solutions will provide the level of assurance that a government device would deliver.
 
@@ -34,7 +12,14 @@ Lastly, it will be important to research how long it takes an exploit to be crea
 
 This is type of research is extremely important to all institutions to help protect sensitive data and mitigate the adversaries' ability to breach their network.  By compiling all of this data and creating a timeline to analyze this data, the hope is to provide useful information to confirms or denies the advantage of introducing layered solutions into an institutions network security posture.
 
+**Goals and Objectives**
 
+* Extract data from NVD and CVE databases
+* Model vulnerabilities, exploits, patches, and patch windows
+* Construct timeline
+* Code webpage
+* Build database
+* Correlate data
 
 
 ## Proposed project timeline
