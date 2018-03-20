@@ -3,7 +3,7 @@
 # @Email:  mlhale@unomaha.edu
 # @Filename: vulnCode.py
 # @Last modified by:   matthale
-# @Last modified time: 2018-03-20T12:52:58-05:00
+# @Last modified time: 2018-03-20T12:57:05-05:00
 # @Copyright: Copyright (C) 2018 Matthew L. Hale
 
 
@@ -44,7 +44,6 @@ class vulnObject:
         date_obj = datetime.date(int(year), int(lookup_table[month]), int(days))
         timestamp = time.mktime(date_obj.timetuple())
         print timestamp
-        print "hello world, github example"
         print datetime.datetime.fromtimestamp(timestamp)
         self. dateFirstPublished = dateFirstPublished
 
