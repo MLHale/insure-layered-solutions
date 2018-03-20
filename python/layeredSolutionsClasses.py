@@ -152,7 +152,7 @@ class Search:
                     print('Error from strings   {}    {}'.format(string1,string2))
                     print(search_url)
                     print (str(e))
-                    traceback.print_exc()
+                    print(traceback.print_exc())
 
                     if debug:
                         break
