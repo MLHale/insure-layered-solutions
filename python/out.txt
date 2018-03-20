@@ -1,0 +1,92 @@
+Total number of vulns scraped: 10
+
+
+            Search URL:             https://kb.cert.org/vuls/id/205225
+            VU#:                    205225
+            CVEID:                  Unknown
+            Date Public:            2006-07-12 00:00:00
+            Date First Published:   2006-07-14 00:00:00
+            Date Last Updated:      2006-07-14 00:00:00
+            Severity Metric:        46.50
+            Document Revision:      23
+
+            Search URL:             https://kb.cert.org/vuls/id/154883
+            VU#:                    154883
+            CVEID:                  Unknown
+            Date Public:            2005-11-01 00:00:00
+            Date First Published:   2005-11-02 00:00:00
+            Date Last Updated:      2005-11-02 00:00:00
+            Severity Metric:        3.90
+            Document Revision:      7
+
+            Search URL:             https://kb.cert.org/vuls/id/732671
+            VU#:                    732671
+            CVEID:                  CVE-2010-1574
+            Date Public:            2010-07-07 00:00:00
+            Date First Published:   2010-07-12 00:00:00
+            Date Last Updated:      2010-07-12 00:00:00
+            Severity Metric:        5.93
+            Document Revision:      16
+
+            Search URL:             https://kb.cert.org/vuls/id/201984
+            VU#:                    201984
+            CVEID:                  Unknown
+            Date Public:            2007-08-08 00:00:00
+            Date First Published:   2007-08-09 00:00:00
+            Date Last Updated:      2007-08-10 00:00:00
+            Severity Metric:        17.85
+            Document Revision:      4
+
+            Search URL:             https://kb.cert.org/vuls/id/337508
+            VU#:                    337508
+            CVEID:                  Unknown
+            Date Public:            2007-05-02 00:00:00
+            Date First Published:   2007-05-03 00:00:00
+            Date Last Updated:      2007-05-04 00:00:00
+            Severity Metric:        0.70
+            Document Revision:      11
+
+            Search URL:             https://kb.cert.org/vuls/id/472412
+            VU#:                    472412
+            CVEID:                  Unknown
+            Date Public:            2007-02-28 00:00:00
+            Date First Published:   2007-03-02 00:00:00
+            Date Last Updated:      2007-03-22 00:00:00
+            Severity Metric:        9.37
+            Document Revision:      20
+
+            Search URL:             https://kb.cert.org/vuls/id/778648
+            VU#:                    778648
+            CVEID:                  CVE-2006-5660
+            Date Public:            2006-11-01 00:00:00
+            Date First Published:   2006-12-11 00:00:00
+            Date Last Updated:      2007-01-05 00:00:00
+            Severity Metric:        18.43
+            Document Revision:      20
+
+            Search URL:             https://kb.cert.org/vuls/id/123140
+            VU#:                    123140
+            CVEID:                  CVE-2006-4950
+            Date Public:            2006-09-20 00:00:00
+            Date First Published:   2006-10-13 00:00:00
+            Date Last Updated:      2006-10-13 00:00:00
+            Severity Metric:        7.27
+            Document Revision:      33
+
+            Search URL:             https://kb.cert.org/vuls/id/821420
+            VU#:                    821420
+            CVEID:                  CVE-2006-4774
+            Date Public:            2006-09-13 00:00:00
+            Date First Published:   2006-09-28 00:00:00
+            Date Last Updated:      2006-09-28 00:00:00
+            Severity Metric:        12.40
+            Document Revision:      21
+
+            Search URL:             https://kb.cert.org/vuls/id/810062
+            VU#:                    810062
+            CVEID:                  CAN-2004-0244
+            Date Public:            2004-02-03 00:00:00
+            Date First Published:   2004-03-30 00:00:00
+            Date Last Updated:      2004-04-05 00:00:00
+            Severity Metric:        6.24
+            Document Revision:      32

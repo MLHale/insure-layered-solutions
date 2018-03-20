@@ -1,8 +1,19 @@
+# @Author: Matthew Hale <matthale>
+# @Date:   2018-03-20T12:18:08-05:00
+# @Email:  mlhale@unomaha.edu
+# @Filename: vulnCode.py
+# @Last modified by:   matthale
+# @Last modified time: 2018-03-20T12:46:23-05:00
+# @Copyright: Copyright (C) 2018 Matthew L. Hale
+
+
+
 import requests
-import AdvancedHTMLParser
 import json
 import pprint
 import re
+import time
+import datetime
 from bs4 import BeautifulSoup
 from dateparser import parse
 from datetime import datetime
@@ -26,7 +37,22 @@ class vulnObject:
         self.datePublic = datePublic
 
     def setDateFirstPublished(self, dateFirstPublished):
+<<<<<<< HEAD
         self.dateFirstPublished = dateFirstPublished
+=======
+        print dateFirstPublished
+        # print time.mktime(dateFirstPublished)
+        days = dateFirstPublished[1:3]
+        month = dateFirstPublished[3:6]
+        year = dateFirstPublished[6:]
+        print days, month, year
+        lookup_table = {'Jan':1,'Feb':2, 'Mar':3, 'Apr':4, 'May':5,'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
+        date_obj = datetime.date(int(year), int(lookup_table[month]), int(days))
+        timestamp = time.mktime(date_obj.timetuple())
+        print timestamp
+        print datetime.datetime.fromtimestamp(timestamp)
+        self. dateFirstPublished = dateFirstPublished
+>>>>>>> c93427c3fe85c4fc2c95888008684368d3bd1508
 
     def setDateLastUpdated(self, dateLastUpdated):
         self.dateLastUpdated = dateLastUpdated
@@ -54,8 +80,11 @@ class Search:
         vulnList = []
         urlList = []
         searchDict = {}
-        payload = {'query': 'cisco', 'searchmax': '10', 'searchorder': '1'}
+        payload = {'query': 'cisco', 'searchmax': '1000', 'searchorder': '1'}
+        start = datetime.datetime.now()
         results = requests.get('https://kb.cert.org/vuls/byid?searchview', params=payload)
+        end = datetime.datetime.now()
+        print end - start
         soup = BeautifulSoup(results.text, 'html.parser')
 
 
@@ -109,4 +138,3 @@ class Search:
 
 if __name__ == "__main__":
     Search().run()
-    
