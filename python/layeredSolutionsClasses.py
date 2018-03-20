@@ -1,20 +1,53 @@
+import sys
+import argparse
 import requests
-import AdvancedHTMLParser
-import json
-import pprint
 import re
+import traceback
+import datetime
 from bs4 import BeautifulSoup
-from dateparser import parse
-from datetime import datetime
 from time import mktime
 
 class vulnObject:
 
     numVulns = 0
 
-    def __init__(self, vulnID):
+    def __init__(self, vulnID, debug):
         self.vulnID = vulnID
+        self.search_url =''
+        self.cveID = ''
+        self.datePublic = 0.0 
+        self.dateFirstPublished = 0.0
+        self.dateLastUpdated = 0.0
+        self.severityMetric = 0.0
+        self.documentRevision = 0.0
+        self.debug = debug
+
         vulnObject.numVulns +=1
+
+    def convertDate2Epoch(self, date):
+        days = date[0:2]
+        month = date[2:5]
+        year = int(date[5:])
+
+        if (year < 2000):
+            year = year + 1900
+
+        try:
+            lookup_table = {'Jan':1,'Feb':2, 'Mar':3, 'Apr':4, 'May':5,'Jun': 6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
+            date_obj = datetime.date(int(year), int(lookup_table[month]), int(days))
+            timestamp = mktime(date_obj.timetuple())
+
+        except Exception as e:
+            if debug:
+                print('Error: date info below')
+                print(days, month, year)
+                print (timestamp)
+                print (datetime.datetime.fromtimestamp(timestamp))
+                print()
+
+            return e
+
+        return timestamp
 
     def setSearchURL(self, search_url):
         self.search_url = search_url
@@ -23,13 +56,13 @@ class vulnObject:
         self.cveID = cveID
 
     def setDatePublic(self, datePublic):
-        self.datePublic = datePublic
+        self.datePublic = self.convertDate2Epoch(datePublic)
 
     def setDateFirstPublished(self, dateFirstPublished):
-        self.dateFirstPublished = dateFirstPublished
+        self.dateFirstPublished = self.convertDate2Epoch(dateFirstPublished)
 
     def setDateLastUpdated(self, dateLastUpdated):
-        self.dateLastUpdated = dateLastUpdated
+        self.dateLastUpdated = self.convertDate2Epoch(dateLastUpdated)
 
     def setSeverityMetric(self, severityMetric):
         self.severityMetric = severityMetric
@@ -50,14 +83,13 @@ class vulnObject:
 
 class Search:
 
-    def searchVuln(self):
+    def searchVuln(self, debug, product, searchMax):
         vulnList = []
         urlList = []
         searchDict = {}
-        payload = {'query': 'cisco', 'searchmax': '10', 'searchorder': '1'}
+        payload = {'query': product, 'searchmax': searchMax, 'searchorder': '1'}
         results = requests.get('https://kb.cert.org/vuls/byid?searchview', params=payload)
         soup = BeautifulSoup(results.text, 'html.parser')
-
 
         for link in soup.find_all('a'):
             if re.search('/vuls/id/[0-9]*', str(link)):
@@ -68,7 +100,7 @@ class Search:
             urlList.append(string)
 
         for num in range(len(urlList)):
-            vuln = vulnObject(urlList[num])
+            vuln = vulnObject(urlList[num], debug)
             search_url = 'https://kb.cert.org/vuls/id/' + urlList[num]
             vuln.setSearchURL(search_url)
             tempList = []
@@ -82,31 +114,74 @@ class Search:
                 string1 = re.sub('[\[,\], \']', '',str(data1.contents))
                 string2 = re.sub('[\[,\], \']', '',str(data2.contents))
 
-                if re.search('<ahref=', string2):
-                    string2 = re.search('C[A,V][N,E]-[0-9]*-[0-9]*', string2).group()
+                try:
+                    if re.match('<ahref=', string2):
+                        string2 = re.search('C[A-Z]*-[0-9]*-[0-9]*', string2).group()
 
-                tempList.append(string1)
-                tempList.append(string2)
+                except AttributeError:
+                    if debug:
+                        print('AttributeError:  {}  {}'.format(string1,string2))
 
-            vuln.setCVEID(tempList[1])
-            vuln.setDatePublic(tempList[3])
-            vuln.setDateFirstPublished(tempList[5])
-            vuln.setDateLastUpdated(tempList[7])
-            vuln.setSeverityMetric(tempList[9])
-            vuln.setDocumentRevision(tempList[11])
+                    continue
+
+                try:
+
+                    if (string1 == 'CVEIDs:'):
+                        vuln.setCVEID(string2)
+
+                    elif (string1 == 'DatePublic:'):
+                        vuln.setDatePublic(string2)
+
+                    elif (string1 == 'DateFirstPublished:'):
+                        vuln.setDateFirstPublished(string2)
+
+                    elif (string1 == 'DateLastUpdated:'):
+                        vuln.setDateLastUpdated(string2)
+
+                    elif (string1 == 'SeverityMetric:'):
+                        vuln.setSeverityMetric(string2)
+
+                    elif (string1 == 'DocumentRevision:'):
+                        vuln.setDocumentRevision(string2)
+
+                    else:
+                        continue
+
+                except Exception as e:
+                    print('Error from strings   {}    {}'.format(string1,string2))
+                    print(search_url)
+                    print (str(e))
+                    traceback.print_exc()
+
+                    if debug:
+                        break
+
+                    else:
+                        return e
+
 
             searchDict[urlList[num]] = vuln
 
         return searchDict
 
 
-    def run(self):
-        results = self.searchVuln()
+    def run(self, debug, product, searchMax):
+        results = self.searchVuln(debug, product, searchMax)
         print("Total number of vulns scraped: {}\n".format(len(results)))
 
         for item in results:
             print(str(results[item]))
 
 if __name__ == "__main__":
-    Search().run()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--debug', help='turn on script debugging', action='store_true', default=False)
+    parser.add_argument('product', type=str)
+    parser.add_argument('searchMax', type=str)
+    args = parser.parse_args()
+    #print(args)
+
+    Search().run(args.debug, args.product, args.searchMax)
+
+
+
     
