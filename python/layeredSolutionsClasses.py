@@ -24,7 +24,8 @@ class vulnObject:
 
         vulnObject.numVulns +=1
 
-    def convertDate2Epoch(self, date):
+    def convertDate2Epoch(self, date, debug):
+        self.debug = debug
         days = date[0:2]
         month = date[2:5]
         year = int(date[5:])
@@ -38,7 +39,7 @@ class vulnObject:
             timestamp = mktime(date_obj.timetuple())
 
         except Exception as e:
-            if debug:
+            if self.debug:
                 print('Error: date info below')
                 print(days, month, year)
                 print (timestamp)
@@ -56,13 +57,13 @@ class vulnObject:
         self.cveID = cveID
 
     def setDatePublic(self, datePublic):
-        self.datePublic = self.convertDate2Epoch(datePublic)
+        self.datePublic = self.convertDate2Epoch(datePublic, self.debug)
 
     def setDateFirstPublished(self, dateFirstPublished):
-        self.dateFirstPublished = self.convertDate2Epoch(dateFirstPublished)
+        self.dateFirstPublished = self.convertDate2Epoch(dateFirstPublished, self.debug)
 
     def setDateLastUpdated(self, dateLastUpdated):
-        self.dateLastUpdated = self.convertDate2Epoch(dateLastUpdated)
+        self.dateLastUpdated = self.convertDate2Epoch(dateLastUpdated, self.debug)
 
     def setSeverityMetric(self, severityMetric):
         self.severityMetric = severityMetric
