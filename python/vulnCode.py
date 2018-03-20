@@ -4,6 +4,9 @@ import json
 import pprint
 import re
 from bs4 import BeautifulSoup
+from dateparser import parse
+from datetime import datetime
+from time import mktime
 
 class vulnObject:
 
@@ -23,7 +26,7 @@ class vulnObject:
         self.datePublic = datePublic
 
     def setDateFirstPublished(self, dateFirstPublished):
-        self. dateFirstPublished = dateFirstPublished
+        self.dateFirstPublished = dateFirstPublished
 
     def setDateLastUpdated(self, dateLastUpdated):
         self.dateLastUpdated = dateLastUpdated
