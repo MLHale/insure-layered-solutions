@@ -1,7 +1,11 @@
 # Progress Report 3/26/2018
 ## Overview
 
-  Efforts made (please add to list as needed; will need to write a brief overview in paragraph form)
+will need to write a brief overview in paragraph form
+
+## Outcomes
+
+  Efforts made (please add to list as needed)
   
   1. Completed research
   2. Completed [python script](https://github.com/MLHale/insure-layered-solutions/blob/master/python/layeredSolutionsClasses.py) to scrape cert.org vulnerability database
