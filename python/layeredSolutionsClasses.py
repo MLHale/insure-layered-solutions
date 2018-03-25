@@ -110,7 +110,7 @@ class Search:
 
         #For each vulnID in the vulnList:
         for num in range(len(urlList)): 
-            vuln = vulnObject(urlList[num], debug) #obstabtiates the vuln object
+            vuln = vulnObject(urlList[num], debug) #instantiate the vuln object
             search_url = 'https://kb.cert.org/vuls/id/' + urlList[num] #search URL used to obtain results
             vuln.setSearchURL(search_url)
             tempList = []
