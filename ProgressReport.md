@@ -14,7 +14,7 @@ will need to write a brief overview in paragraph form
 ## Hinderances
 
 * Coming up with an accepted approach to dealing with unknown patch dates
-* Learning BeautifulSoup and parsing the results obtained to receive relevant data from the python script
+* Learning BeautifulSoup to help scrape the database and parsing the results obtained to receive relevant data from the python script
 
 ## Ongoing Risks
 
