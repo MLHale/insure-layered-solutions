@@ -113,7 +113,6 @@ class Search:
             vuln = vulnObject(urlList[num], debug) #instantiate the vuln object
             search_url = 'https://kb.cert.org/vuls/id/' + urlList[num] #search URL used to obtain results
             vuln.setSearchURL(search_url)
-            tempList = []
             vul_results = requests.get(search_url) #Get request to pull details of the vulnerability
             parsed_results = BeautifulSoup(vul_results.text, 'html.parser') #Parsing the results with BeautifulSoup
             other_info = parsed_results.find(id="other-info") #Find the other-info section from the parsed results and creating a reference to them. This section holds in information on the vuln we are interested in
