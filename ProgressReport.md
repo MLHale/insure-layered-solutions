@@ -25,9 +25,9 @@ We are currently working on improving and modifying the python script to search 
 
 | Risk Name (value) | Impact | Likelihood | Description |
 |-------------------------------------------------------|--------|------------|:---------------------------------------------------------------------------------------------------------------------------------------:|
-| Programming issues (64) | 8 | 8 | Any programming issues with the HTML webpage or the Python program will slow progress. |
-|    Unable to find exploit and patch dates (63)        | 9 | 7 | If exploit and patch dates cannot be found or incorrect, the final results in the timeline will be off. |
-| No vulnerability overlaps in timeline (56) | 8 | 7 | Problems could arise if the vulnerability timeline is not showing overlaps properly.    |
-| Problems gathering data (18) | 6 | 3 | Any major issues scraping databases for information will not allow for the rest of the project to continue until data can be retrieved. |
-| Team member availability (15) | 5 | 3 | Team members must be able to coordinate appropriate times to meet otherwise progress will be slowed. |
+| Programming issues (21) | 7 | 3 | Any programming issues with the HTML webpage or the Python program will slow progress. |
+|    Unable to find exploit and patch dates (32)        | 8| 4 | If exploit and patch dates cannot be found or incorrect, the final results in the timeline will be off. |
+| No vulnerability overlaps in timeline (24) | 8 | 3 | Problems could arise if the vulnerability timeline is not showing overlaps properly.    |
+| Problems gathering data (12) | 6 | 2 | Any major issues scraping databases for information will not allow for the rest of the project to continue until data can be retrieved. |
+| Team member availability (36) | 9 | 4 | Team members must be able to coordinate appropriate times to meet otherwise progress will be slowed. |
 | CVEs not found (12) | 6 | 2 | The project will not work if relevant CVEs cannot be found for the Enterprise VPN solutions that have been chosen |
