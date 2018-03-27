@@ -27,11 +27,12 @@ We are currently working on improving and modifying the python script to search 
 
 | Risk Name (value) | Impact | Likelihood | Description |
 |-------------------------------------------------------|--------|------------|:---------------------------------------------------------------------------------------------------------------------------------------:|
-| Programming issues (21) | 7 | 3 | Any programming issues with the HTML webpage or the Python program will slow progress. |
-|    Unable to find exploit and patch dates (32)        | 8| 4 | If exploit and patch dates cannot be found or incorrect, the final results in the timeline will be off. |
-| No vulnerability overlaps in timeline (24) | 8 | 3 | Problems could arise if the vulnerability timeline is not showing overlaps properly.    |
-| Problems gathering data (12) | 6 | 2 | Any major issues scraping databases for information will not allow for the rest of the project to continue until data can be retrieved. |
-| Team member availability (36) | 9 | 4 | Team members must be able to coordinate appropriate times to meet otherwise progress will be slowed. |
+|    Unable to find exploit and patch dates (54) | 9| 6 | If exploit and patch dates cannot be found or incorrect, the final results in the timeline will be off. |
+| Programming issues (40) | 8 | 5 | Any programming issues with the HTML webpage or the Python program will slow progress. |
+| No vulnerability overlaps in timeline (40) | 8 | 5 | Problems could arise if the vulnerability timeline is not showing overlaps properly.    |
+| Team member availability (28) | 7 | 4 | Team members must be able to coordinate appropriate times to meet otherwise progress will be slowed. |
+| Learning curve of applications such as Django, BeautifulSoup, etc (25) | 5 | 5 | Time must be spent learning the applications that will be used to conduct the project. This doesn't have that high of an impact because other team members can help fill in the gaps. |
+| Problems gathering data (24) | 6 | 4 | Any major issues scraping databases for information will not allow for the rest of the project to continue until data can be retrieved. |
 | CVEs not found (12) | 6 | 2 | The project will not work if relevant CVEs cannot be found for the Enterprise VPN solutions that have been chosen |
 
 ## Helpful Diagrams
