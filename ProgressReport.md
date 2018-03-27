@@ -11,6 +11,8 @@ We are currently working on improving and modifying the python script to search 
 
 ## Outcomes
 
+  Up to this point, we have completed our research into vulnerbilites, VPNs, and and the vulnerbility databases. We have also completed the python script to scrape the US cert vulnerability database and convert the results into objects that we intend to pass to our web application. Based on available research, we have determined the best approach to determining patch dates is to let the user decide and give guidance on the app on patch windows based on the availbale research. 
+  
   Efforts made (please add to list as needed)
   
   1. Completed research
