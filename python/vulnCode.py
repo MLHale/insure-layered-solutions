@@ -104,7 +104,6 @@ class Search:
             vul_results = requests.get(search_url)
             parsed_results = BeautifulSoup(vul_results.text, 'html.parser')
             other_info = parsed_results.find(id="other-info")
-            print(other_info)
 
             for li in other_info.find_all('li'):
                 data1 = li.find_all('span')[0]
