@@ -42,3 +42,5 @@ We are currently working on improving and modifying the python script to search 
 This first diagram is a visualization of the question we are trying to answer. The blue and red "layers" represent two different VPN solutions in use and the black hat represents the attacker attempting to weave their way into the critical systems. However, it does not address a situation where an attacker can create permanent access through the first layer.
 
 ![alt text](https://i.imgur.com/oTHPUQs.jpg "Data Diagram")
+
+This second diagram shows the life cycle of our data we are using to generate the vulnerabilty timelines for given vendors. The data starts at the CERT website and, through the use of some clever python scripts, ends in a web application database ready to be displayed on a timeline for the user to peruse. 
