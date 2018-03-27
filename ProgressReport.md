@@ -28,8 +28,8 @@ We are currently working on improving and modifying the python script to search 
 | Risk Name (value) | Impact | Likelihood | Description |
 |-------------------------------------------------------|--------|------------|:---------------------------------------------------------------------------------------------------------------------------------------:|
 |    Unable to find exploit and patch dates (42) | 7| 6 | If exploit and patch dates cannot be found or incorrect, the final results in the timeline will be off. |
-| Programming issues (40) | 8 | 5 | Any programming issues with the HTML webpage or the Python program will slow progress. |
 | No vulnerability overlaps in timeline (40) | 8 | 5 | Problems could arise if the vulnerability timeline is not showing overlaps properly.    |
+| Programming issues (35) | 7 | 5 | Any programming issues with the HTML webpage or the Python program will slow progress. |
 | Team member availability (28) | 7 | 4 | Team members must be able to coordinate appropriate times to meet otherwise progress will be slowed. |
 | Learning curve of applications such as Django, BeautifulSoup, etc (25) | 5 | 5 | Time must be spent learning the applications that will be used to conduct the project. This doesn't have that high of an impact because other team members can help fill in the gaps. |
 | Problems gathering data (24) | 6 | 4 | Any major issues scraping databases for information will not allow for the rest of the project to continue until data can be retrieved. |
