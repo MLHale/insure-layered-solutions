@@ -21,6 +21,7 @@ We are currently working on improving and modifying the python script to search 
 
 * Coming up with an accepted approach to dealing with unknown patch dates
 * Learning BeautifulSoup to help scrape the database and parsing the results obtained to receive relevant data from the python script
+* Detrmining the best way to pass data between the search Python script and the web app
 
 ## Ongoing Risks
 
