@@ -7,7 +7,7 @@ Because, we were not confident in the dates that National Vulnerability Database
 
 We are currently working on improving and modifying the python script to search for the vulnerabilities of two different vendors, to draw the timeline for the vulnerabilities, and to figure out the common timeframe for vulnerabilities of two different products. In addition, we have to create the web front end using Django to search for the vulnerabilities to produce results in a timeline format showing the attack window of overlapping vulnerabilities to the user. It is important to note that this python script will be doing real time searches to produce the result.  We originally wrote the python script to scrap the database once to hold the data in our own database for doing the queries.  We decided against this because the data would get old and you would have to manually run the script to refresh the data.  We are working on using some mathematical probabilities to create a bell curve which will depict the most likely window for an attacker to exploit both vulnerabilities leading to a successful breach into a network.
 
-![UML](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/CapstoneERDDataFlow.pdf)
+![UML](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/UML.png)
 
 ## Outcomes
 
