@@ -40,3 +40,5 @@ We are currently working on improving and modifying the python script to search 
 ![alt text](https://i.imgur.com/qPILImM.jpg "Problem Diagram")
 
 This first diagram is a visualization of the question we are trying to answer. The blue and red "layers" represent two different VPN solutions in use and the black hat represents the attacker attempting to weave their way into the critical systems. However, it does not address a situation where an attacker can create permanent access through the first layer.
+
+![alt text](https://i.imgur.com/jKtN5oR.jpg "Data Diagram")
