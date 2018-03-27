@@ -21,6 +21,7 @@ This is type of research is extremely important to all institutions to help prot
 * Build database
 * Correlate data
 
+![UML](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/uml3.png)
 
 ## Proposed project timeline
 ![screenshot](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/NewImprovedGant.png)
