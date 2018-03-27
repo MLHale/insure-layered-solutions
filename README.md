@@ -93,3 +93,12 @@ First vital step to this research project will be to define a set of enterprise 
 16. W. A. Arbaugh, W. L. Fithen and J. McHugh, "Windows of vulnerability: a case study analysis," in Computer, vol. 33, no. 12, pp. 52-59, Dec 2000.
 
 17. Wen, S., Zhou, W., Zhang, J., Xiang, Y., Zhou, W., Jia, W., & Zou, C. C. (2014). Modeling and analysis on the propagation dynamics of modern email malware. IEEE transactions on dependable and secure computing, 11(4), 361-374.
+
+## Helpful Diagrams
+![alt text](https://i.imgur.com/qPILImM.jpg "Problem Diagram")
+
+This first diagram is a visualization of the question we are trying to answer. The blue and red "layers" represent two different VPN solutions in use and the black hat represents the attacker attempting to weave their way into the critical systems. However, it does not address a situation where an attacker can create permanent access through the first layer.
+
+![alt text](https://i.imgur.com/oTHPUQs.jpg "Data Diagram")
+
+This second diagram shows the life cycle of the data we are using to generate the vulnerabilty timelines for given vendors. The data starts at the CERT website and, through the use of some clever python scripts, ends in a web application database ready to be displayed on a timeline for the user to peruse. 
