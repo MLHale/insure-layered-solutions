@@ -11,7 +11,6 @@ We are currently working on improving and modifying the python script to search 
 
 ## Outcomes
 
-  Efforts made (please add to list as needed)
   
   1. Completed research
   2. Completed [python script](https://github.com/MLHale/insure-layered-solutions/blob/master/python/layeredSolutionsClasses.py) to scrape cert.org vulnerability database
