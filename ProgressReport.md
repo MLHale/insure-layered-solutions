@@ -28,7 +28,7 @@ We are currently working on improving and modifying the python script to search 
 
 | Risk Name (value) | Impact | Likelihood | Description |
 |-------------------------------------------------------|--------|------------|:---------------------------------------------------------------------------------------------------------------------------------------:|
-|    Unable to find exploit and patch dates (54) | 9| 6 | If exploit and patch dates cannot be found or incorrect, the final results in the timeline will be off. |
+|    Unable to find exploit and patch dates (42) | 7| 6 | If exploit and patch dates cannot be found or incorrect, the final results in the timeline will be off. |
 | Programming issues (40) | 8 | 5 | Any programming issues with the HTML webpage or the Python program will slow progress. |
 | No vulnerability overlaps in timeline (40) | 8 | 5 | Problems could arise if the vulnerability timeline is not showing overlaps properly.    |
 | Team member availability (28) | 7 | 4 | Team members must be able to coordinate appropriate times to meet otherwise progress will be slowed. |
