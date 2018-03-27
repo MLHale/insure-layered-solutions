@@ -100,7 +100,7 @@ class Search:
         results = requests.get('https://kb.cert.org/vuls/byid?searchview', params=payload) #get request to obtain results 
         soup = BeautifulSoup(results.text, 'html.parser') #BeutifulSoup is used to parse the reults
 
-        for link in soup.find_all('a'): #Searches through the results for a paticular pattern to obtain partial urls with vulnIDs
+        for link in soup.find_all('a'): #Searches through the results for links and using regex to match a pattern to obtain partial urls with vulnIDs
             if re.search('/vuls/id/[0-9]*', str(link)):
                 vulnList.append(str(re.findall('/vuls/id/[0-9]*', str(link))))
 
