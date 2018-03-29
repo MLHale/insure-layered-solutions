@@ -59,7 +59,7 @@ class vulnObject:
         self.search_url = search_url
 
     def setCVEID(self, cveID):
-        self.cveID = self.cveID + cveID
+        self.cveID = cveID
 
     def setDatePublic(self, datePublic):
         self.datePublic = self.convertDate2Epoch(datePublic, self.debug)
@@ -126,13 +126,7 @@ class Search:
 
                 try:
                     if re.match('<ahref=', string2):
-                        stringList = re.findall('C[A-Z]*-[0-9]*-[0-9]*', string2)
-                        string2 = str(stringList[0])
-                        if (len(stringList) > 1):
-                            for pos in range(1,len(stringList)):
-                                if (pos%2 == 0):
-                                    string2 = string2 + ', ' + stringList[pos]
-
+                        string2 = re.search('C[A-Z]*-[0-9]*-[0-9]*', string2).group()
 
                 except AttributeError:
                     if debug:
