@@ -226,19 +226,30 @@ class Search:
                 days = key['Published'][8:10]
                 #print(key['Published'])
                 #print('Year = {} Month = {} Days = {}'.format(year, month, days))
+
                 vuln = vulnObject(cve, debug)
                 vuln.search_url = 'https://nvd.nist.gov/vuln/detail/' + cve
                 vuln.cveID = cve
+
                 vuln.setDatePublic(days, month, year)
+                year = key['Modified'][0:4]
+                month = key['Modified'][5:7]
+                days = key['Modified'][8:10]
+
+                vuln.setDateLastUpdated(days, month,year)
+                #print('Year = {} Month = {} Days = {}'.format(year, month, days))
                 vuln.severityMetric = key['cvss']
-                #print(str(vuln))
                 results[cve] = vuln
 
 
-        print("Total number of vulns scraped: {}\n".format(len(results)))
+        #print("Total number of vulns scraped: {}\n".format(len(results)))
 
         for item in results:
             print(str(results[item]))
+
+        print(json.dumps(results, default=lambda o: o.__dict__))
+
+
 
 if __name__ == "__main__":
     #Parsing the command line for arguments
