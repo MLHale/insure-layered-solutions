@@ -4,6 +4,7 @@ import requests
 import re
 import traceback
 import datetime
+import json
 from bs4 import BeautifulSoup
 from time import mktime
 
@@ -28,18 +29,11 @@ class vulnObject:
         vulnObject.numVulns +=1
 
     #Function to convert the Gregorian calander dates to UNIX Epoch dates
-    def convertDate2Epoch(self, date, debug):
+    def convertDate2Epoch(self, days, month, year, debug):
         self.debug = debug
-        days = date[0:2]
-        month = date[2:5]
-        year = int(date[5:])
-
-        if (year < 2000):
-            year = year + 1900
 
         try:
-            lookup_table = {'Jan':1,'Feb':2, 'Mar':3, 'Apr':4, 'May':5,'Jun': 6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
-            date_obj = datetime.date(int(year), int(lookup_table[month]), int(days))
+            date_obj = datetime.date(int(year), int(month), int(days))
             timestamp = mktime(date_obj.timetuple())
 
         except Exception as e:
@@ -61,14 +55,14 @@ class vulnObject:
     def setCVEID(self, cveID):
         self.cveID = self.cveID + cveID
 
-    def setDatePublic(self, datePublic):
-        self.datePublic = self.convertDate2Epoch(datePublic, self.debug)
+    def setDatePublic(self, days, month, year):
+        self.datePublic = self.convertDate2Epoch(days, month, year, self.debug)
 
-    def setDateFirstPublished(self, dateFirstPublished):
-        self.dateFirstPublished = self.convertDate2Epoch(dateFirstPublished, self.debug)
+    def setDateFirstPublished(self, days, month, year):
+        self.dateFirstPublished = self.convertDate2Epoch(days, month, year, self.debug)
 
-    def setDateLastUpdated(self, dateLastUpdated):
-        self.dateLastUpdated = self.convertDate2Epoch(dateLastUpdated, self.debug)
+    def setDateLastUpdated(self, days, month, year):
+        self.dateLastUpdated = self.convertDate2Epoch(days, month, year, self.debug)
 
     def setSeverityMetric(self, severityMetric):
         self.severityMetric = severityMetric
@@ -92,11 +86,13 @@ class vulnObject:
 class Search:
 
     #Function that will search and parse the results from the search
-    def searchVuln(self, debug, product, searchMax):
+    def searchVuln(self, debug, vendor, product, searchMax):
         vulnList = [] #List to store parsed URLs from the query
         urlList = [] #List to store the vulnIDs
         searchDict = {} #Dict to hold the vuln objects with the key being the vulnID
-        payload = {'query': product, 'searchmax': searchMax, 'searchorder': '1'} #payload dict that is passed to the get request
+        lookup_table = {'Jan':1,'Feb':2, 'Mar':3, 'Apr':4, 'May':5,'Jun': 6, 'Jul':7, 'Aug':8, 'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
+        queryString = vendor + ' AND ' + product
+        payload = {'query': queryString, 'searchmax': searchMax, 'searchorder': '1'} #payload dict that is passed to the get request
         results = requests.get('https://kb.cert.org/vuls/byid?searchview', params=payload) #get request to obtain results 
         soup = BeautifulSoup(results.text, 'html.parser') #BeutifulSoup is used to parse the reults
 
@@ -146,13 +142,37 @@ class Search:
                         vuln.setCVEID(string2)
 
                     elif (string1 == 'DatePublic:'):
-                        vuln.setDatePublic(string2)
+                        days = string2[0:2]
+                        month = string2[2:5]
+                        year = int(string2[5:])
+                        month = lookup_table[month]
+
+                        if (year < 2000):
+                            year = year + 1900
+
+                        vuln.setDatePublic(days, month, year)
 
                     elif (string1 == 'DateFirstPublished:'):
-                        vuln.setDateFirstPublished(string2)
+                        days = string2[0:2]
+                        month = string2[2:5]
+                        year = int(string2[5:])
+                        month = lookup_table[month]
+
+                        if (year < 2000):
+                            year = year + 1900
+
+                        vuln.setDateFirstPublished(days, month, year)
 
                     elif (string1 == 'DateLastUpdated:'):
-                        vuln.setDateLastUpdated(string2)
+                        days = string2[0:2]
+                        month = string2[2:5]
+                        year = int(string2[5:])
+                        month = lookup_table[month]
+
+                        if (year < 2000):
+                            year = year + 1900
+
+                        vuln.setDateLastUpdated(days, month, year)
 
                     elif (string1 == 'SeverityMetric:'):
                         vuln.setSeverityMetric(string2)
@@ -181,8 +201,40 @@ class Search:
         return searchDict
 
 
-    def run(self, debug, product, searchMax):
-        results = self.searchVuln(debug, product, searchMax)
+    def run(self, debug, vendor, product, searchMax):
+        results = self.searchVuln(debug, vendor, product, searchMax)
+        nvdResults = requests.get('https://cve.circl.lu/api/search/' + vendor + '/' + product)
+        parsed_json = json.loads(nvdResults.text)
+
+        for key in parsed_json:
+            cve = key['id']
+            #print('CVE = {}'.format(cve))
+            #print('\n')
+            numMatches = 0
+
+            for item in results:
+                cveID = results[item].cveID
+                #print('cveID = {}'.format(cveID))
+
+                if re.findall(cve, cveID):
+                    numMatches += 1
+                    #print('Matched {} {} times'.format(cve, numMatches))
+                
+            if (numMatches == 0):
+                year = key['Published'][0:4]
+                month = key['Published'][5:7]
+                days = key['Published'][8:10]
+                #print(key['Published'])
+                #print('Year = {} Month = {} Days = {}'.format(year, month, days))
+                vuln = vulnObject(cve, debug)
+                vuln.search_url = 'https://nvd.nist.gov/vuln/detail/' + cve
+                vuln.cveID = cve
+                vuln.setDatePublic(days, month, year)
+                vuln.severityMetric = key['cvss']
+                #print(str(vuln))
+                results[cve] = vuln
+
+
         print("Total number of vulns scraped: {}\n".format(len(results)))
 
         for item in results:
@@ -192,12 +244,13 @@ if __name__ == "__main__":
     #Parsing the command line for arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--debug', help='turn on script debugging', action='store_true', default=False)
+    parser.add_argument('vendor', type=str)
     parser.add_argument('product', type=str)
     parser.add_argument('searchMax', type=str)
     args = parser.parse_args()
     #print(args)
 
-    Search().run(args.debug, args.product, args.searchMax)
+    Search().run(args.debug, args.vendor, args.product, args.searchMax)
 
 
 
