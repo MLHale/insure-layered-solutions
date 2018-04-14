@@ -1,4 +1,4 @@
-# Final Report 5/3/2018
+# Progress Report 5/3/2018
 ## Overview (To Do: update for milestone 3)
 
 In milestone1, our plan was to scrape the National Vulnerability Database to collect vulnerability information using Circle API.  As we began researching the data we had been collecting, we realized that the published dates of the vulnerabilities were not accurate and standardized.  Some of the dates were very recent and did not accurately reflect when the patch was released and we could not determine the exact patch dates for the vulnerabilities. For this research project, we felt that patch dates were important to draw the timeline and to define the window of opportunities for the attacks. 
