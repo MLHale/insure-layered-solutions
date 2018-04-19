@@ -205,6 +205,7 @@ class Search:
         results = self.searchVuln(debug, vendor, product, searchMax)
         nvdResults = requests.get('https://cve.circl.lu/api/search/' + vendor + '/' + product)
         parsed_json = json.loads(nvdResults.text)
+        print(json.dumps(parsed_json))
 
         for key in parsed_json:
             cve = key['id']
@@ -247,7 +248,11 @@ class Search:
         for item in results:
             print(str(results[item]))
 
-        print(json.dumps(results, default=lambda o: o.__dict__))
+        out = ''
+        for item in results:
+            out = out + json.dumps(results[item], default=lambda o: o.__dict__)
+
+        print(out)
 
 
 
