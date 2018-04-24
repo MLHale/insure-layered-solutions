@@ -214,19 +214,75 @@ class Search:
         for ch in ven:
             vendor = vendor + ch
 
+            vendor = vendor.lower()
+            product = product.lower()
+
         if debug:
-            print(vendor)
+            print('Vendor: {}   Product: {}'.format(vendor, product))
 
         if (product == ''):
             nvdResults = requests.get('https://cve.circl.lu/api/search/' + vendor)
+
+            if debug:
+                print ('Search URL: {}'.format('https://cve.circl.lu/api/search/' + vendor))
+
+            parsed_json = json.loads(nvdResults.text) 
+
+            for item in parsed_json:
+
+                for key in parsed_json[item]:
+
+                    try:
+                        cve = key['id']
+
+                    except TypeError as e:
+                        print('Error: key[{}]'.format(id))
+                        print(str(e))
+                        continue
+
+                    numMatches = 0
+
+                    for item in results:
+                        cveID = results[item].cveID
+
+                        if re.findall(cve, cveID):
+                            numMatches += 1
+                
+                    if (numMatches == 0):
+                        try:
+                            year = key['Published'][0:4]
+                            month = key['Published'][5:7]
+                            days = key['Published'][8:10]
+
+                            vuln = vulnObject(cve, debug)
+                            vuln.search_url = 'https://nvd.nist.gov/vuln/detail/' + cve
+                            vuln.cveID = cve
+
+                            vuln.setDatePublic(days, month, year)
+                            year = key['Modified'][0:4]
+                            month = key['Modified'][5:7]
+                            days = key['Modified'][8:10]
+
+                            vuln.setDateLastUpdated(days, month,year)
+                            vuln.severityMetric = key['cvss']
+                            results[cve] = vuln
+
+                        except KeyError as e:
+                            if debug:
+                                print('KeyError: result: {}'.format(str(results[item])))
+
+                            break
+
+
         else:
             nvdResults = requests.get('https://cve.circl.lu/api/search/' + vendor + '/' + product)
 
-        parsed_json = json.loads(nvdResults.text)   
+            if debug:
+                print ('Search URL: {}'.format('https://cve.circl.lu/api/search/' + vendor + '/' + product))
 
-        for item in parsed_json:
+            parsed_json = json.loads(nvdResults.text) 
 
-            for key in parsed_json[item]:
+            for key in parsed_json:
 
                 try:
                     cve = key['id']
@@ -268,6 +324,7 @@ class Search:
                             print('KeyError: result: {}'.format(str(results[item])))
 
                         break
+
 
         out = ''
         for item in results:
