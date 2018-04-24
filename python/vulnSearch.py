@@ -127,13 +127,15 @@ class Search:
 
                 except AttributeError:
                     if debug:
-                        print('AttributeError:  {}  {}'.format(string1,string2))
-                        continue
+                        print('AttributeError:  string1: {}  String2: {}'.format(string1,string2))
+                    
+                    continue
 
                 except IndexError:
                     if debug:
-                        print('IndexError: string1: {} string2:{}'.format(string1, string2))
-                        continue
+                        print('IndexError: string1: {} string2: {}'.format(string1, string2))
+                    
+                    continue
 
                 try:
 
@@ -186,7 +188,7 @@ class Search:
                     print(traceback.print_exc())
 
                     if debug:
-                        break
+                        continue
 
                     else:
                         return e
