@@ -128,8 +128,12 @@ class Search:
                 except AttributeError:
                     if debug:
                         print('AttributeError:  {}  {}'.format(string1,string2))
+                        continue
 
-                    continue
+                except IndexError:
+                    if debug:
+                        print('IndexError: string1: {} string2:{}'.format(string1, string2))
+                        continue
 
                 try:
 
@@ -239,39 +243,39 @@ class Search:
                         numMatches += 1
                 
                 if (numMatches == 0):
-                    year = key['Published'][0:4]
-                    month = key['Published'][5:7]
-                    days = key['Published'][8:10]
-                    #print(key['Published'])
-                    #print('Year = {} Month = {} Days = {}'.format(year, month, days))
+                    try:
+                        year = key['Published'][0:4]
+                        month = key['Published'][5:7]
+                        days = key['Published'][8:10]
 
-                    vuln = vulnObject(cve, debug)
-                    vuln.search_url = 'https://nvd.nist.gov/vuln/detail/' + cve
-                    vuln.cveID = cve
+                        vuln = vulnObject(cve, debug)
+                        vuln.search_url = 'https://nvd.nist.gov/vuln/detail/' + cve
+                        vuln.cveID = cve
 
-                    vuln.setDatePublic(days, month, year)
-                    year = key['Modified'][0:4]
-                    month = key['Modified'][5:7]
-                    days = key['Modified'][8:10]
+                        vuln.setDatePublic(days, month, year)
+                        year = key['Modified'][0:4]
+                        month = key['Modified'][5:7]
+                        days = key['Modified'][8:10]
 
-                    vuln.setDateLastUpdated(days, month,year)
-                    #print('Year = {} Month = {} Days = {}'.format(year, month, days))
-                    vuln.severityMetric = key['cvss']
-                    results[cve] = vuln
+                        vuln.setDateLastUpdated(days, month,year)
+                        vuln.severityMetric = key['cvss']
+                        results[cve] = vuln
 
+                    except KeyError as e:
+                        if debug:
+                            print('KeyError: result: {}'.format(str(results[item])))
 
-        print("Total number of vulns scraped: {}\n".format(len(results)))
-
-        for item in results:
-            print(str(results[item]))
+                        break
 
         out = ''
-
         for item in results:
             out = out + json.dumps(results[item], default=lambda o: o.__dict__)
 
-        print(out)
+        if debug:
+            print("Total number of vulns scraped: {}\n".format(len(results)))
+            print(out)
 
+        return out
 
 
 if __name__ == "__main__":
@@ -282,7 +286,6 @@ if __name__ == "__main__":
     parser.add_argument('product', type=str)
     parser.add_argument('searchMax', type=str)
     args = parser.parse_args()
-    #print(args)
 
     Search().run(args.debug, args.vendor, args.product, args.searchMax)
 

@@ -102,7 +102,7 @@ class Search:
         results = requests.get('https://cve.circl.lu/api/search/' + 'cisco' + '/' + 'anyconnect') #get request to obtain results 
         #soup = BeautifulSoup(results.text, 'html.parser') #BeutifulSoup is used to parse the reults
         parsed_json = json.loads(results.text)
-        for key in parsed_json:
+        for key in
             print(key['id'])
             #print('\n')
         
