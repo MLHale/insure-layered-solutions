@@ -327,6 +327,7 @@ class Search:
 
 
         out = ''
+
         for item in results:
             out = out + json.dumps(results[item], default=lambda o: o.__dict__)
 
@@ -334,7 +335,7 @@ class Search:
             print("Total number of vulns scraped: {}\n".format(len(results)))
             print(out)
 
-        return out
+        return results
 
 
 if __name__ == "__main__":
