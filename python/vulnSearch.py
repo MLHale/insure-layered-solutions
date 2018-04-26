@@ -107,6 +107,7 @@ class Search:
             vul_results = requests.get(search_url) #Get request to pull details of the vulnerability
             parsed_results = BeautifulSoup(vul_results.text, 'html.parser') #Parsing the results with BeautifulSoup
             other_info = parsed_results.find(id="other-info") #Find the other-info section from the parsed results and creating a reference to them. This section holds in information on the vuln we are interested in
+            cvss_metrics = parsed_results.find(id='cvss-score')
 
             #Find all the information from the other-info section and place the information we are interested in into the appropriate place in the vulnObject
             for li in other_info.find_all('li'):
@@ -193,8 +194,52 @@ class Search:
                     else:
                         return e
 
-
             searchDict[urlList[num]] = vuln
+
+        for item in searchDict:
+            if debug:
+                print(str(searchDict[item]))
+
+            if (searchDict[item].cveID == 'Unknown'):
+                if debug:
+                    print(searchDict[item].cveID)
+                    print(cvss_metrics)
+
+                if (searchDict[item].severityMetric != 0.0):
+                    temp = searchDict[item].severityMetric
+                    searchDict[item].setSeverityMetric(float(searchDict[item].severityMetric)/10.0)
+                    
+                    if debug:
+                        print('Divided SM ({}) by 10 = {}\n'.format(temp, searchDict[item].severityMetric))
+
+                else:
+                    base = re.findall('>[0-9].[0-9]<',str(cvss_metrics))
+                    base = re.sub('[<,>]', '', str(base[0]))
+                    searchDict[item].setSeverityMetric(float(base))
+
+                    if debug:
+                        print('\nBase {}'.format(base))
+
+            else:
+                cve = re.findall('CVE-[0-9]*-[0-9]*', searchDict[item].cveID)
+                temp = str(cve)
+
+                if (len(cve) != 0):
+                    cveResult = requests.get('https://cve.circl.lu/api/cve/' + str(cve[0]))
+                    cve = json.loads(cveResult.text)
+                    searchDict[item].setSeverityMetric(cve['cvss'])
+
+                    if debug:
+                        print('Length: {}'.format(len(cve)))
+                        print('CVE = {}'.format(temp))
+
+                else:
+                    temp = searchDict[item].severityMetric
+                    searchDict[item].setSeverityMetric(float(searchDict[item].severityMetric)/10.0)
+                    
+                    if debug:
+                        print('Divided SM ({}) by 10 = {}\n'.format(temp, searchDict[item].severityMetric))
+                        print(cve)
 
         return searchDict
 

@@ -28,11 +28,16 @@ class vulnSearchDate:
 
     def betweenDates(self, vulns, beginYear, endYear, debug):
 
-        day = 1
-        month = 1
-        start = self.convertDate2Epoch(day, month, beginYear, debug)
-        end = self.convertDate2Epoch(day, month, endYear, debug)
+        beginDay = 1
+        beginMonth = 1
+        endDay = 31
+        endMonth = 12
+        start = self.convertDate2Epoch(beginDay, beginMonth, beginYear, debug)
+        end = self.convertDate2Epoch(endDay, endMonth, endYear, debug)
         out = ''
+
+        if debug:
+            print('\nStart Date: {}   End Date: {}'.format(start, end))
 
         for item in vulns:
 
