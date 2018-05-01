@@ -399,7 +399,7 @@ class Search:
 if __name__ == "__main__":
     #Parsing the command line for arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d', '--debug', help='turn on script debugging', action='store_true', default=False)
+    parser.add_argument('-d', '--debug', help='turn on script debugging', nargs='?', action='store_true', default=False)
     parser.add_argument('vendor', type=str)
     parser.add_argument('product', type=str)
     parser.add_argument('searchMax', nargs='?', type=str, default='all')
