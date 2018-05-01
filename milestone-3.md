@@ -13,7 +13,7 @@ The website will allow a company or individual to decide for themselves if a lay
 * Built the website using the Django Framework
 * Completed the timeline implementation on the website
 * Determined appropriate keyword searches for vulnerability databases
-* Integrate the Python script with the website to return live data
+* Integrated the Python script with the website to return live data
 * Documented the results of the project to be able to present a finished product
 
 
