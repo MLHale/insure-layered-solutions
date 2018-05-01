@@ -8,7 +8,6 @@ import json
 from bs4 import BeautifulSoup
 from time import mktime
 
-
 #Class to store relevant information about the vulnerbility.
 class vulnObject:
 
@@ -21,6 +20,7 @@ class vulnObject:
         self.cveID = '' #Relevant CVE ID, if any
         self.datePublic = 0.0 #Date that the vuln went public
         self.dateFirstPublished = 0.0 #Date vuln was first published in database
+        self.datePatched = 0.0 #Date vuln patched
         self.dateLastUpdated = 0.0 #Date vuln we last updated in database
         self.severityMetric = 0.0 #Severith metric associated with the vuln
         self.debug = debug #Flag to set debug mode on or off
@@ -63,6 +63,9 @@ class vulnObject:
     def setDateLastUpdated(self, days, month, year):
         self.dateLastUpdated = self.convertDate2Epoch(days, month, year, self.debug)
 
+    def setDatePatched(self, date):
+        self.datePatched = date
+
     def setSeverityMetric(self, severityMetric):
         self.severityMetric = severityMetric
 
@@ -75,7 +78,8 @@ class vulnObject:
             Date Public:            {}
             Date First Published:   {}
             Date Last Updated:      {}
-            Severity Metric:        {}'''.format(self.search_url, self.vulnID, self.cveID, self.datePublic, self.dateFirstPublished, self.dateLastUpdated, self.severityMetric))
+            Date Patched:           {}
+            Severity Metric:        {}'''.format(self.search_url, self.vulnID, self.cveID, self.datePublic, self.dateFirstPublished, self.dateLastUpdated, self.datePatched, self.severityMetric))
 
 #Class to search the database. It is passed three parameters. A true or false debug flag, the product being searched for, and the max number of results to return
 class Search:
@@ -175,6 +179,7 @@ class Search:
                             year = year + 1900
 
                         vuln.setDateLastUpdated(days, month, year)
+                        vuln.setDatePatched(vuln.dateLastUpdated)
 
                     elif (string1 == 'SeverityMetric:'):
                         vuln.setSeverityMetric(string2)
@@ -203,7 +208,7 @@ class Search:
             if (searchDict[item].cveID == 'Unknown'):
                 if debug:
                     print(searchDict[item].cveID)
-                    print(cvss_metrics)
+                    #print(cvss_metrics)
 
                 if (searchDict[item].severityMetric != 0.0):
                     temp = searchDict[item].severityMetric
@@ -244,7 +249,8 @@ class Search:
         return searchDict
 
 
-    def run(self, debug, vendor, product, searchMax):
+    def run(self, debug, vendor, product, searchMax, vulnDelta):
+        PATCHTIMEDAYS = vulnDelta #Number of days for vuln to be patched
         results = self.searchVuln(debug, vendor, product, searchMax)
         ven = []
 
@@ -312,6 +318,9 @@ class Search:
                             vuln.severityMetric = key['cvss']
                             results[cve] = vuln
 
+                            delta = vulnDelta * 24.0 * 3600.0 #days hours seconds
+                            self.datePatched = self.datePublic + delta
+
                         except KeyError as e:
                             if debug:
                                 print('KeyError: result: {}'.format(str(results[item])))
@@ -364,6 +373,9 @@ class Search:
                         vuln.severityMetric = key['cvss']
                         results[cve] = vuln
 
+                        delta = vulnDelta * 24.0 * 3600.0 #days hours seconds
+                        vuln.setDatePatched(vuln.datePublic + delta)
+
                     except KeyError as e:
                         if debug:
                             print('KeyError: result: {}'.format(str(results[item])))
@@ -371,14 +383,15 @@ class Search:
                         break
 
 
-        out = ''
+        #out = ''
 
-        for item in results:
-            out = out + json.dumps(results[item], default=lambda o: o.__dict__)
+        #for item in results:
+            #out = out + json.dumps(results[item], default=lambda o: o.__dict__)
 
         if debug:
             print("Total number of vulns scraped: {}\n".format(len(results)))
-            print(out)
+            for item in results:
+                print(str(results[item]))
 
         return results
 
@@ -389,10 +402,11 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--debug', help='turn on script debugging', action='store_true', default=False)
     parser.add_argument('vendor', type=str)
     parser.add_argument('product', type=str)
-    parser.add_argument('searchMax', type=str)
+    parser.add_argument('searchMax', nargs='?', type=str, default='all')
+    parser.add_argument('vulnDelta', nargs='?', type=float, default=60.0)
     args = parser.parse_args()
 
-    Search().run(args.debug, args.vendor, args.product, args.searchMax)
+    Search().run(args.debug, args.vendor, args.product, args.searchMax, args.vulnDelta)
 
 
 

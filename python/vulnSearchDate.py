@@ -41,7 +41,7 @@ class vulnSearchDate:
 
         for item in vulns:
 
-            if ( vulns[item].datePublic < start or vulns[item].datePublic > end):
+            if ( (vulns[item].datePublic < start and vulns[item].datePatched < start) or vulns[item].datePublic > end):
                 continue
 
             else:
@@ -53,8 +53,8 @@ class vulnSearchDate:
         return out
 
 
-    def run(self, debug, vendor, product, searchMax, beginYear, endYear):
-        vulns = vulnSearch.Search().run(debug, vendor, product, searchMax)
+    def run(self, debug, vendor, product, searchMax, vulnDelta, beginYear, endYear):
+        vulns = vulnSearch.Search().run(debug, vendor, product, searchMax, vulnDelta)
 
         if debug:
             print(vulns)
@@ -78,11 +78,12 @@ if __name__ == "__main__":
     parser.add_argument('vendor', help='Vendor of product',type=str)
     parser.add_argument('product', help='Product to search for',type=str)
     parser.add_argument('searchMax', help='Input number of results to return. Default is all', nargs='?', type=str, default='all')
+    parser.add_argument('vulnDelta', nargs='?', type=float, default=60.0)
     parser.add_argument('beginYear', help='input year to start search',type=int)
     parser.add_argument('endYear', help='input year to end search',type=int)
 
     args = parser.parse_args()
 
-    vulnSearchDate().run(args.debug, args.vendor, args.product, args.searchMax, args.beginYear, args.endYear)
+    vulnSearchDate().run(args.debug, args.vendor, args.product, args.searchMax, args.vulnDelta, args.beginYear, args.endYear)
 
 
