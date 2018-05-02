@@ -1,7 +1,7 @@
 # Progress Report 5/3/2018
 ## Overview
 
-In milestone 2, we showed the Python script that will be used to pull vulnerability data from the US Cert database. The script will take the HTML data and convert that into python objects using BeautifulSoup. These objects will be fed into the web application to display a D3 timeline of the vulnerabilities. That interaction between the Python script and the web application was the main focus for milestone 3.
+In milestone 2, we showed the Python script that will be used to pull vulnerability data from the US Cert database and NVD database. The script will take the HTML data and convert that into python objects using BeautifulSoup HTML parser. These objects will be fed into the web application to display a timeline of the vulnerabilities using d3.js. That interaction between the Python script and the web application was the main focus for milestone 3.
 The final product that an end user will see from this project is the timeline of vulnerabilities that will be displayed in our web application created with Django. The timeline will allow a user to choose two different VPN vendors, click “Submit”, and have a timeline generated automatically using the information scraped from the US Cert and NVD databases. The website also allows for two dates to be selected so that the timeline is generated for only that given time period.
 
 ![UML](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/webpage.png)
