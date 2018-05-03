@@ -32,6 +32,10 @@ A. Arora, R. Krishnan, A. Handkumar, R. Telang, Y. Yang, made an attempt to empi
 
 In the RSA Conference [10] they talked about the layering security solutions. In data transmission highly, sensitive data requires a high level of assurance, this can be possible by several layers of authorization from different agencies. Traditionally, government devices were designed and certified in order to handle the most sensitive data. The adoption GOTS(Government-Off-The-Shelf) solutions provide high level of assurance but this has made high operating cost for developing the high assurance devices. National Security Agency(NSA) Central Security Service(CSS) has come up with a program known as Commercial Solutions for Classified (CSfC) program [3] to leverage the cost and to provide the same assurance as GOTS solutions. The principle of CSfC is that properly configured and layered solutions can provide sufficient protection for the classified data. Composition of the security mechanisms(layering) provides a high level of assurance then the individual mechanisms.
 
+##Update methodology to better suit our project?
+
+Our methodology for this project started with our plan to scrape the NVD and CERT database to gather vulnerability data around the VPN solutions we chose to evaluate. We utilized a HTML scraping and the CIRCL API to pick out the data we wanted to display to our users. We developed a sophisticate python script that allows a user to submit two vendors and a date range in order to seek out and return vulnerability data for their selected vendors. Then, we chose to build a web application that utilizes this python script in the backend and displays the data it returns in a JavaScript timeline. We harnessed the power of the Django web framework to create a smooth and functional website. 
+
 ## Results / Findings
 (brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings)
 
@@ -39,7 +43,6 @@ In the RSA Conference [10] they talked about the layering security solutions. In
 * Successfully built a web application to allow a user to compare VPN vendors to determine past vulnerability windows
 * Built the website so it can be easily expanded to other security solutions that may be layered
 * Successfully built a python script to scrap vulnerability data from the NVD and CERT database
-* 
 
 ## Install Instructions (if applicable)
 ### Requirements
