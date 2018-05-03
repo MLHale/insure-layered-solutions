@@ -49,6 +49,7 @@ There were several hinderances encountered completing the project. The first hin
 	Once the search results were obtained, it was necessary to determine an approach on how to obtain the patch dates for the vulnerabilities. We decided on this methodology: 
 * For the cert.org database, it was determined that the last date the page was updated correlated to the patch date for the vulnerability
 * For the NVD database, it was not as simple as selecting the last date the page was updated as that date appeared to correspond to any change that was made to the page. As there was not good mechanism to determine the patch date, it was decided to use as a standard sixty days. It was decided that sixty days was a good benchmark for an organization to patch, test, and re-deploy a system based on known research and industry experience.
+
 Other hinderances were programming the front end of the web app and have it interact appropriately with the scripts we had written as most of the team had limited experience with JavaScript and Django. It was also difficult to determine the best approach to present the large amount of data that was obtained to the user in an effective manner until we were introduced to the d3,js framework.
 
 ## Install Instructions (if applicable)
