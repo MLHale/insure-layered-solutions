@@ -56,7 +56,7 @@ Other hinderances were programming the front end of the web app and have it inte
 * Update the front end to drop down menus to make it easier for the user to pick vendor/product as they are keyword dependent
 * Add user configurable patch date delta to allow them to choose the timeframe for a patch to be deployed
 * Determine a method to determine accurate patch dates
-* Update the search script on the production server with the updated search scripts that handled the patch dates better
+* Update the search script on the production server with the updated search scripts that handle the patch dates better
 
 
 ## Install Instructions (if applicable)
