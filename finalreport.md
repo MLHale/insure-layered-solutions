@@ -1,7 +1,6 @@
 # The Impact of Known Vulnerabilities on Layered Solutions
 
 ## Executive Summary
-(overview of project, reuse from milestone 1, update if scope changed)
 
 The purpose of layered solutions is to give the ability of an institution to use layered commercial products to deliver access to their critical data while maintaining security.  Traditionally, government devices were designed and certified to be used to access their most sensitive data.  This is extremely costly and time consuming.  Recently, the government has been reviewing proposals which would utilize commercial devices to deliver the same results as the government devices.  To increase the governments assurance, the government is attempting to ascertain if the use of multiple or layered solutions will provide the level of assurance that a government device would deliver.
 
