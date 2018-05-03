@@ -44,6 +44,13 @@ Our methodology for this project started with our plan to scrape the NVD and CER
 * Built the website so it can be easily expanded to other security solutions that may be layered
 * Successfully built a python script to scrap vulnerability data from the NVD and CERT database
 
+##Hinderances
+There were several hinderances encountered completing the project. The first hinderance was scrapping the cert.org database. As this database does not have an API, it was necessary to search the database and then parse the html results. Once this was working, it was determined that the NVD database would need to be searched and scrapped as well as the cert.org database only included a subset of published vulnerabilities. The scrapping of this database was straightforward as there was an API to accomplish it, the difficulties lied in merging the results together and compensating for the differences between them. This was especially true with the differences in the keywords needed to search the two databases were different. To overcome this, research was done on what keyword obtained the best results. 
+	Once the search results were obtained, it was necessary to determine an approach on how to obtain the patch dates for the vulnerabilities. We decided on this methodology: 
+•	For the cert.org database, it was determined that the last date the page was updated correlated to the patch date for the vulnerability
+•	For the NVD database, it was not as simple as selecting the last date the page was updated as that date appeared to correspond to any change that was made to the page. As there was not good mechanism to determine the patch date, it was decided to use as a standard sixty days. It was decided that sixty days was a good benchmark for an organization to patch, test, and re-deploy a system based on known research and industry experience.
+Other hinderances were programming the front end of the web app and have it interact appropriately with the scripts we had written as most of the team had limited experience with JavaScript and Django. It was also difficult to determine the best approach to present the large amount of data that was obtained to the user in an effective manner until we were introduced to the d3,js framework.
+
 ## Install Instructions (if applicable)
 ### Requirements
 (list of any software / hardware requirements necessary to run the code/app/etc)
