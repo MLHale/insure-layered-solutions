@@ -72,7 +72,7 @@ class vulnSearchDate:
 if __name__ == "__main__":
     #Parsing the command line for arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d', '--debug', help='turn on script debugging', nargs='?', action='store_true', default=False)
+    parser.add_argument('-d', '--debug', help='turn on script debugging', action='store_true', default=False)
     parser.add_argument('vendor', help='Vendor of product',type=str)
     parser.add_argument('product', help='Product to search for',type=str)
     parser.add_argument('searchMax', help='Input number of results to return. Default is all', nargs='?', type=str, default='all')
