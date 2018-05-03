@@ -22,7 +22,8 @@ This is type of research is extremely important to all institutions to help prot
 
 
 ## Project Methodology
-(specific methodology followed in the project, reuse from milestone 1/2, update if scope changed)
+
+### Literature Review
 
 R. Haverkos and D. Sokoler have done research on layered solutions as part of the INSuRE project. They considered the vulnerabilities of the two VPNs (Cisco AnyConnect and Juniper) and estimated a time window for the patches to those vulnerabilities. In this method, they have collected the data from the National Vulnerability Database and estimated the patch availabilities dates and then measured the windows of opportunities. The result was the development of a simulation considering the two security mechanisms as layered solutions. [14]
 
@@ -32,14 +33,13 @@ A. Arora, R. Krishnan, A. Handkumar, R. Telang, Y. Yang, made an attempt to empi
 
 In the RSA Conference [10] they talked about the layering security solutions. In data transmission highly, sensitive data requires a high level of assurance, this can be possible by several layers of authorization from different agencies. Traditionally, government devices were designed and certified in order to handle the most sensitive data. The adoption GOTS(Government-Off-The-Shelf) solutions provide high level of assurance but this has made high operating cost for developing the high assurance devices. National Security Agency(NSA) Central Security Service(CSS) has come up with a program known as Commercial Solutions for Classified (CSfC) program [3] to leverage the cost and to provide the same assurance as GOTS solutions. The principle of CSfC is that properly configured and layered solutions can provide sufficient protection for the classified data. Composition of the security mechanisms(layering) provides a high level of assurance then the individual mechanisms.
 
-##Update methodology to better suit our project?
+### Technical Plan
 
 Our methodology for this project started with our plan to scrape the NVD and CERT database to gather vulnerability data around the VPN solutions we chose to evaluate. We utilized a HTML scraping and the CIRCL API to pick out the data we wanted to display to our users. We developed a sophisticate python script that allows a user to submit two vendors and a date range in order to seek out and return vulnerability data for their selected vendors. Then, we chose to build a web application that utilizes this python script in the backend and displays the data it returns in a JavaScript timeline. We harnessed the power of the Django web framework to create a smooth and functional website. 
 
 ## Results / Findings
 (brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings)
 
-(bulleted lists can also be helpful to structure your results discussion)
 * Successfully built a web application to allow a user to compare VPN vendors to determine past vulnerability windows
 * Built the website so it can be easily expanded to other security solutions that may be layered
 * Successfully built a python script to scrap vulnerability data from the NVD and CERT database
@@ -50,7 +50,7 @@ There were several hinderances encountered completing the project. The first hin
 * For the cert.org database, it was determined that the last date the page was updated correlated to the patch date for the vulnerability
 * For the NVD database, it was not as simple as selecting the last date the page was updated as that date appeared to correspond to any change that was made to the page. As there was not good mechanism to determine the patch date, it was decided to use as a standard sixty days. It was decided that sixty days was a good benchmark for an organization to patch, test, and re-deploy a system based on known research and industry experience.
 
-Other hinderances were programming the front end of the web app and have it interact appropriately with the scripts we had written as most of the team had limited experience with JavaScript and Django. It was also difficult to determine the best approach to present the large amount of data that was obtained to the user in an effective manner until we were introduced to the d3,js framework.
+Other hinderances were programming the front end of the web app and have it interact appropriately with the scripts we had written as most of the team had limited experience with JavaScript and Django. It was also difficult to determine the best approach to present the large amount of data that was obtained to the user in an effective manner until we were introduced to the d3.js framework.
 
 ## Future Work
 * Update the front end to drop down menus to make it easier for the user to pick vendor/product as they are keyword dependent
@@ -77,6 +77,8 @@ Other hinderances were programming the front end of the web app and have it inte
 6. Dragging your mouse across the bottom most three lines magnifies the view on the top three lines.
 
 7. Results should be returned on three separate lines, one for each vendor and a combined attack window.
+
+8. Help button gives information about list of vendors to search.
 
 8. Below the timelines will also display columns of each vendors vulnerabilities ID’s and Severity level.
 
