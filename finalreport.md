@@ -56,11 +56,24 @@ Other hinderances were programming the front end of the web app and have it inte
 ### Requirements
 (list of any software / hardware requirements necessary to run the code/app/etc)
 
-### Installation Instructions
-(list of steps to install the product/app/code/etc)
+### Usage Instructions
+1. Enter a choice and a product for Vendor 1. Ex: Cisco VPN
 
-### Getting started
-(list of any steps to run the code after installation and/or manage the apps over their lifecycle)
+2. Enter a choice and a product for Vendor 2. Ex: OpenVPN VPN
+
+3. Below is a legend to properly return the most and correct results.
+
+4. From drop down menu choose a beginning year and an ending year.
+
+5. Click the Submit button.
+
+6. Dragging your mouse across the bottom most three lines magnifies the view on the top three lines.
+
+7. Results should be returned on three separate lines, one for each vendor and a combined attack window.
+
+8. Below the timelines will also display columns of each vendors vulnerabilities ID’s and Severity level.
+
+The rightmost column displays both vulnerability ID’s and an average severity of the two overlapping vulnerabilities.
 
 ## Bibliography
 
