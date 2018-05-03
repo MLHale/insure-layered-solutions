@@ -52,6 +52,13 @@ There were several hinderances encountered completing the project. The first hin
 
 Other hinderances were programming the front end of the web app and have it interact appropriately with the scripts we had written as most of the team had limited experience with JavaScript and Django. It was also difficult to determine the best approach to present the large amount of data that was obtained to the user in an effective manner until we were introduced to the d3,js framework.
 
+## Future Work
+* Update the front end to drop down menus to make it easier for the user to pick vendor/product as they are keyword dependent
+* Add user configurable patch date delta to allow them to choose the timeframe for a patch to be deployed
+* Determine a method to determine accurate patch dates
+* Update the search script on the production server with the updated search scripts that handled the patch dates better
+
+
 ## Install Instructions (if applicable)
 ### Requirements
 (list of any software / hardware requirements necessary to run the code/app/etc)
