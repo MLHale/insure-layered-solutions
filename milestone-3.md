@@ -7,9 +7,9 @@ To recap, the script receives the user input, extracts the useful fields with th
 
 ![UML](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/webpage.png)
  
-The website will allow a company or individual to decide for themselves if a layered solution of two VPNs would be appropriate. A timeline can be quickly generated to compare two different vendor VPNs over a selected date range that will show any overlapping vulnerabilities between the VPNs. This comparison will allow the company to make the decision as to what VPNs to go with based on the history of vulnerabilities of the two chosen vendors as well as the likelihood that any one vulnerability will line up with another. The website gives users a tool to be able to mix and match different VPN vendors to determine how vulnerable a layered solution may be to attackers.
+The website will allow a company or individual to decide if a layered solution of two VPN products would be appropriate. A timeline can be quickly generated to compare two different vendor VPNs over a selected date range that will display any overlapping vulnerabilities between the VPNs. This overlap is called that attack window.  This comparison will aid in a company’s decision to determine what combination of VPN products to go with based on the history of vulnerabilities of the two chosen vendors as well as the likelihood that any one vulnerability will line up with another. The website supplies users a tool to be able to mix and match different VPN vendors to determine how vulnerable a layered solution may be to attackers.
+Additionally, our tool can be easily built upon to include additional security solutions with vulnerabilities in the databases we search. Continuing to make improvements and  additions to the user experience such as this, will aid in the applications function as a powerful tool for risk analysis and security planning in regards to layered solutions.
 
-Additionally, our tool can be easily built upon to include additional security solutions with vulnerabilities in the databases we search. If these additions were implemented and the rest of the site was sharpened up for ease of use, our application could become a powerful tool for risk analysis and security planning in regards to layered solutions 
 
 ## Outcomes
 
