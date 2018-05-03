@@ -7,6 +7,7 @@ import argparse
 
 class vulnSearchDate:
 
+    #Function to convert Gregorian date to UNIX Epoch date
     def convertDate2Epoch(self, days, month, year, debug):
         self.debug = debug
 
@@ -26,6 +27,7 @@ class vulnSearchDate:
 
         return timestamp
 
+    #Function to return vulns between two dates(UNIX Epoch)
     def betweenDates(self, vulns, beginYear, endYear, debug):
 
         beginDay = 1
@@ -54,16 +56,12 @@ class vulnSearchDate:
 
 
     def run(self, debug, vendor, product, searchMax, vulnDelta, beginYear, endYear):
-        vulns = vulnSearch.Search().run(debug, vendor, product, searchMax, vulnDelta)
+        vulns = vulnSearch.Search().run(debug, vendor, product, searchMax, vulnDelta) #Search cert.org and NVD database
 
         if debug:
             print(vulns)
 
-        results = self.betweenDates(vulns, beginYear, endYear, debug)
-        #out = ''
-
-        #for item in results:
-            #out = out + json.dumps(results[item], default=lambda o: o.__dict__)
+        results = self.betweenDates(vulns, beginYear, endYear, debug) #Return only those vulns between the start and stop year
 
         if debug:
             print('Results:\n{}'.format(results))

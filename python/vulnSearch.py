@@ -22,7 +22,7 @@ class vulnObject:
         self.dateFirstPublished = 0.0 #Date vuln was first published in database
         self.datePatched = 0.0 #Date vuln patched
         self.dateLastUpdated = 0.0 #Date vuln we last updated in database
-        self.severityMetric = 0.0 #Severith metric associated with the vuln
+        self.severityMetric = 0.0 #Severity metric associated with the vuln
         self.debug = debug #Flag to set debug mode on or off
 
         vulnObject.numVulns +=1
@@ -142,6 +142,7 @@ class Search:
                     
                     continue
 
+                #Setting object data members
                 try:
 
                     if (string1 == 'CVEIDs:'):
@@ -201,6 +202,7 @@ class Search:
 
             searchDict[urlList[num]] = vuln
 
+        #Setting severity metric based on CVE. If CVE unknown, re-scaling cert.org value to a ten point scale
         for item in searchDict:
             if debug:
                 print(str(searchDict[item]))
@@ -251,10 +253,10 @@ class Search:
 
     def run(self, debug, vendor, product, searchMax, vulnDelta):
         PATCHTIMEDAYS = vulnDelta #Number of days for vuln to be patched
-        results = self.searchVuln(debug, vendor, product, searchMax)
+        results = self.searchVuln(debug, vendor, product, searchMax) #Results from search of cert.org database
         ven = []
 
-        for ch in vendor:
+        for ch in vendor: #appending space to vendor to favilitate search
             if (ch == ' '):
                 ch = '%20'
 
@@ -271,6 +273,7 @@ class Search:
         if debug:
             print('Vendor: {}   Product: {}'.format(vendor, product))
 
+        #Search with CIRCL API if only vendor is given
         if (product == ''):
             nvdResults = requests.get('https://cve.circl.lu/api/search/' + vendor)
 
@@ -327,7 +330,7 @@ class Search:
 
                             break
 
-
+        #Search with CIRCL API is vendor and product given
         else:
             nvdResults = requests.get('https://cve.circl.lu/api/search/' + vendor + '/' + product)
 
@@ -382,11 +385,6 @@ class Search:
 
                         break
 
-
-        #out = ''
-
-        #for item in results:
-            #out = out + json.dumps(results[item], default=lambda o: o.__dict__)
 
         if debug:
             print("Total number of vulns scraped: {}\n".format(len(results)))
