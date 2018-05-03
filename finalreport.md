@@ -14,14 +14,12 @@ Lastly, it will be important to research how long it takes an exploit to be crea
 This is type of research is extremely important to all institutions to help protect sensitive data and mitigate the adversaries' ability to breach their network.  By compiling all of this data and creating a timeline to analyze this data, the hope is to provide useful information to confirms or denies the advantage of introducing layered solutions into an institutions network security posture.
 
 ## Project Goals
-(high level project goals, reuse from milestone 1, update if scope changed)
 
-* Extract data from NVD and CVE databases
-* Model vulnerabilities, exploits, patches, and patch windows
-* Construct timeline
-* Code webpage
-* Build database
-* Correlate data
+* Extract data from NVD and CERT database
+* Construct timeline using the vulnerability data
+* Create webpage to serve this data to a user
+* Develop a web application that can aid users when they are deciding if a layered solution is right for them
+
 
 ## Project Methodology
 (specific methodology followed in the project, reuse from milestone 1/2, update if scope changed)
@@ -38,8 +36,10 @@ In the RSA Conference [10] they talked about the layering security solutions. In
 (brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings)
 
 (bulleted lists can also be helpful to structure your results discussion)
-* outcome 1
-* outcome 2
+* Successfully built a web application to allow a user to compare VPN vendors to determine past vulnerability windows
+* Built the website so it can be easily expanded to other security solutions that may be layered
+* Successfully built a python script to scrap vulnerability data from the NVD and CERT database
+* 
 
 ## Install Instructions (if applicable)
 ### Requirements
