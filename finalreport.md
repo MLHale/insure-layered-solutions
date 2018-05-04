@@ -60,7 +60,24 @@ Other hinderances were programming the front end of the web app and have it inte
 
 ## Install Instructions (if applicable)
 ### Requirements
-(list of any software / hardware requirements necessary to run the code/app/etc)
+Install instructions
+
+1.	Install operating system of choice.  In this project we used a Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-116-generic x86_64) operating system.
+2.	Install Docker.
+a.	Set up docker repository
+i.	Sudo apt-get update
+ii.	Sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+iii.	Curl -fsSL https://dowload.docker.com/linux/ubuntu/gpg | sudo apt-key add –
+iv.	Sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable”
+b.	Set up docker ce
+i.	Sudo apt-get update
+ii.	Sudo apt-get install docker-ce
+3.	Install webapp from github
+a.	Git clone –recursive https://github.com/MLHale/insure-layered-solutions-webapp.git
+b.	Cd CYBR8470-building-a-webservice-lab
+4.	Run docker-compose build
+5.	Run docker-compose up
+
 
 ### Usage Instructions
 1. Enter a choice and a product for Vendor 1. Ex: Cisco VPN
