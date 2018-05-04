@@ -52,6 +52,8 @@ There were several hinderances encountered completing the project. The first hin
 Other hinderances were programming the front end of the web app and have it interact appropriately with the scripts we had written as most of the team had limited experience with JavaScript and Django. It was also difficult to determine the best approach to present the large amount of data that was obtained to the user in an effective manner until we were introduced to the d3.js framework.
 
 ## Future Work
+There is some future work to be done on this project. Our application can be easily expanded to handle other security appliances that may be utilized in layered solution. More keywords need to be tested and the user input section should be converted to a drop-down menu to avoid instances of bad input being sent to the script.  Additionally, allowing the user to select different options for visualizing the data would be a great addition. The script that pulls the vulnerability data can also be refined and built to better handle instances of bad data such as unrealistic patch dates. Beyond that, user interface upgrades and further expanding out into other security solutions would be a great place to take this project.
+
 * Update the front end to drop down menus to make it easier for the user to pick vendor/product as they are keyword dependent
 * Add user configurable patch date delta to allow them to choose the timeframe for a patch to be deployed
 * Determine a method to determine accurate patch dates
