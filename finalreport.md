@@ -67,7 +67,7 @@ Install instructions
 1.	Install operating system of choice.  In this project we used a Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-116-generic x86_64) operating system.
 2.	Install Docker.
 - a.	Set up docker repository
-  -i.	Sudo apt-get update
+  - i.	Sudo apt-get update
   -ii.	Sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
 ...iii.	Curl -fsSL https://dowload.docker.com/linux/ubuntu/gpg | sudo apt-key add –
 ...iv.	Sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable”
