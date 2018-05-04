@@ -39,9 +39,15 @@ Our methodology for this project started with our plan to scrape the NVD and CER
 ## Results / Findings
 We ultimately achieved our end goal of creating a web application that allows a user to compare layered VPN solutions to determine if a layered solution is right for their organization. Using the Django framework and Python, we were able to create a fully functional web page that collects data from the user and two separate vulnerability databases to create timeline to visualize the attack windows for a given layered solution. With this tool, we believe organizations can make better informed decision when considering a layered solution.
 
-* Successfully built a web application to allow a user to compare VPN vendors to determine past vulnerability windows
-* Built the website so it can be easily expanded to other security solutions that may be layered
-* Successfully built a python script to scrap vulnerability data from the NVD and CERT database
+- Research US Cert and Circl databases.
+- Model Vulnerabilities, exploits, patches, and patch windows.
+- Successfully code a Python script to extract desired data from the National Vulnerability Database and US Cert Database.
+- Create a web application to allow for user input of VPN vendors and timeframe.
+- Render the results in a timeline of vulnerabilities by vendor and places of overlapping vulnerabilities.
+- Display CVE information below the timeline and link to the actual CVE web pages for more detail.
+- Correlate the data.
+- Build the website to easily expand and adapt for use with other security solutions that may be layered.
+
 
 ## Hinderances
 There were several hinderances encountered completing the project. The first hinderance was scrapping the cert.org database. As this database does not have an API, it was necessary to search the database and then parse the html results. Once this was working, it was determined that the NVD database would need to be searched and scrapped as well as the cert.org database only included a subset of published vulnerabilities. The scrapping of this database was straightforward as there was an API to accomplish it, the difficulties lied in merging the results together and compensating for the differences between them. This was especially true with the differences in the keywords needed to search the two databases. To overcome this, research was done on what keyword obtained the best results. 
