@@ -100,6 +100,8 @@ Install instructions
 
 5.	Run docker-compose up
 
+6.	Open web browser and go to localhost
+
 
 ### Usage Instructions
 1. Enter a choice and a product for Vendor (note must include two words Eg: (vendor) (product))
