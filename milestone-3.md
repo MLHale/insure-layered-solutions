@@ -12,6 +12,7 @@ Additionally, our tool can be easily built upon to include additional security s
 
 
 ## Outcomes
+We ultimately achieved our end goal of creating a web application that allows a user to compare layered VPN solutions to determine if a layered solution is right for their organization. Using the Django framework and Python, we were able to create a fully functional web page that collects data from the user and two separate vulnerability databases to create timeline to visualize the attack windows for a given layered solution. With this tool, we believe organizations can make better informed decision when considering a layered solution. 
 
 * Built the website using the Django Framework
 * Completed the timeline implementation on the website
