@@ -41,7 +41,7 @@ We ultimately achieved our end goal of creating a web application that allows a 
 
 - Research US Cert and NVD databases.
 - Model Vulnerabilities, exploits, patches, and patch windows.
-- Successfully code a Python script to extract desired data from the National Vulnerability Database and US Cert Database.
+- Successfully code a [Python script](https://github.com/MLHale/insure-layered-solutions/blob/master/python/vulnSearch.py) to extract desired data from the National Vulnerability Database and US Cert Database.
 - Create a web application to allow for user input of VPN vendors and timeframe.
 - Render the results in a [timeline](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/Vuln_timeline.PNG) of vulnerabilities by vendor and places of overlapping vulnerabilities.
 - Display [CVE information](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/cvelist_screenshot.PNG) below the timeline and link to the actual CVE web pages for more detail.
@@ -55,7 +55,7 @@ There were several hinderances encountered completing the project. The first hin
 * For the cert.org database, it was determined that the last date the page was updated correlated to the patch date for the vulnerability
 * For the NVD database, it was not as simple as selecting the last date the page was updated as that date appeared to correspond to any change that was made to the page. As there was not good mechanism to determine the patch date, it was decided to use as a standard sixty days. It was determined that sixty days was a good benchmark for an organization to patch, test, and re-deploy a system based on known research and industry experience.
 
-Other hinderances were programming the front end of the web app and have it interact appropriately with the scripts we had written as most of the team had limited experience with JavaScript and Django. It was also difficult to determine the best approach to present the large amount of data that was obtained to the user in an effective manner until we were introduced to the d3.js framework.
+Other hinderances were programming the front end of the web app and have it interact appropriately with the scripts we had written as most of the team had limited experience with JavaScript and Django. It was also difficult to determine the best approach to present the large amount of data that was obtained to the user in an effective manner until we were introduced to the d3.js framework(Data Driven Documents).
 
 ## Future Work
 There is some future work to be done on this project. Our application can be easily expanded to handle other security appliances that may be utilized in layered solution. More keywords need to be tested and the user input section should be converted to a drop-down menu to avoid instances of bad input being sent to the script.  Additionally, allowing the user to select different options for visualizing the data would be a great addition. The script that pulls the vulnerability data can also be refined and built to better handle instances of bad data such as unrealistic patch dates. Beyond that, user interface upgrades and further expanding out into other security solutions would be a great place to take this project.
@@ -72,29 +72,29 @@ Install instructions
 
 1.	Install operating system of choice.  In this project we used a Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-116-generic x86_64) operating system.
 
-2.	Install Docker.
+2.	Install [Docker](https://www.docker.com/).
 
 - a.	Set up docker repository
 
-	- i.	Sudo apt-get update
+	- i.	sudo apt-get update
   
-  	- ii.	Sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  	- ii.	sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
   
-  	- iii.Curl -fsSL https://dowload.docker.com/linux/ubuntu/gpg | sudo apt-key add –
+  	- iii.  curl -fsSL https://dowload.docker.com/linux/ubuntu/gpg | sudo apt-key add –
 	
-  	- iv.	Sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable”
+  	- iv.	sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable”
 
 - b.	Set up docker ce
   
-  	- i.	Sudo apt-get update
+  	- i.	sudo apt-get update
   
-  	- ii.	Sudo apt-get install docker-ce
+  	- ii.	sudo apt-get install docker-ce
 
 3.	Install webapp from github
 
-	- a.	Git clone –recursive https://github.com/MLHale/insure-layered-solutions-webapp.git
+	- a.	git clone –recursive https://github.com/MLHale/insure-layered-solutions-webapp.git
 
-	- b.	Cd CYBR8470-building-a-webservice-lab
+	- b.    cd CYBR8470-building-a-webservice-lab
 
 4.	Run docker-compose build
 
