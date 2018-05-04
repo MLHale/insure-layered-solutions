@@ -37,7 +37,7 @@ In the RSA Conference [10] they talked about the layering security solutions. In
 Our methodology for this project started with our plan to scrape the NVD and CERT database to gather vulnerability data around the VPN solutions we chose to evaluate. We utilized a HTML scraping and the CIRCL API to pick out the data we wanted to display to our users. We developed a sophisticate python script that allows a user to submit two vendors and a date range in order to seek out and return vulnerability data for their selected vendors. Then, we chose to build a web application that utilizes this python script in the backend and displays the data it returns in a JavaScript timeline. We harnessed the power of the Django web framework to create a smooth and functional website. 
 
 ## Results / Findings
-(brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings)
+We ultimately achieved our end goal of creating a web application that allows a user to compare layered VPN solutions to determine if a layered solution is right for their organization. Using the Django framework and Python, we were able to create a fully functional web page that collects data from the user and two separate vulnerability databases to create timeline to visualize the attack windows for a given layered solution. With this tool, we believe organizations can make better informed decision when considering a layered solution.
 
 * Successfully built a web application to allow a user to compare VPN vendors to determine past vulnerability windows
 * Built the website so it can be easily expanded to other security solutions that may be layered
