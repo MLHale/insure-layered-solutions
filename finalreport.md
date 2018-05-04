@@ -43,9 +43,9 @@ We ultimately achieved our end goal of creating a web application that allows a 
 - Model Vulnerabilities, exploits, patches, and patch windows.
 - Successfully code a Python script to extract desired data from the National Vulnerability Database and US Cert Database.
 - Create a web application to allow for user input of VPN vendors and timeframe.
-- Render the results in a timeline of vulnerabilities by vendor and places of overlapping vulnerabilities.
-- Display CVE information below the timeline and link to the actual CVE web pages for more detail.
-- Made a keyword list to search for VPN vendors 
+- Render the results in a [timeline](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/Vuln_timeline.PNG) of vulnerabilities by vendor and places of overlapping vulnerabilities.
+- Display [CVE information](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/cvelist_screenshot.PNG) below the timeline and link to the actual CVE web pages for more detail.
+- Made a [keyword list](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/keywordlist.docx) to search for VPN vendors 
 - Correlate the data.
 - Build the website to easily expand and adapt for use with other security solutions that may be layered.
 
