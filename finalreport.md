@@ -66,7 +66,7 @@ There is some future work to be done on this project. Our application can be eas
 * Update the search script on the production server with the updated search scripts that handle the patch dates better
 
 
-## Install Instructions (if applicable)
+## Install Instructions
 ### Requirements
 Install instructions
 
