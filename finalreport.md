@@ -96,13 +96,13 @@ Install instructions
 
 
 ### Usage Instructions
-1. Enter a choice and a product for Vendor 
+1. Enter a choice and a product for Vendor (note must include two words Eg: (vendor) (product))
 - a. Ex: Cisco VPN
 
-2. Enter a choice and a product for Vendor 
+2. Enter a choice and a product for Vendor (note must include two words Eg: (vendor) (product))
 - a. Ex: OpenVPN VPN
 
-3. Below is a legend to properly return the most and correct results.
+3. The "Help" page contains a list of recommended inputs
 
 4. From drop down menu choose a beginning year and an ending year.
 
