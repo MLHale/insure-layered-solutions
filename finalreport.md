@@ -68,25 +68,25 @@ Install instructions
 2.	Install Docker.
 - a.	Set up docker repository
   - i.	Sudo apt-get update
-  -ii.	Sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-...iii.	Curl -fsSL https://dowload.docker.com/linux/ubuntu/gpg | sudo apt-key add –
-...iv.	Sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable”
-..b.	Set up docker ce
-...i.	Sudo apt-get update
-...ii.	Sudo apt-get install docker-ce
+  - ii.	Sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  - iii.Curl -fsSL https://dowload.docker.com/linux/ubuntu/gpg | sudo apt-key add –
+  - iv.	Sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable”
+- b.	Set up docker ce
+  - i.	Sudo apt-get update
+  - ii.	Sudo apt-get install docker-ce
 3.	Install webapp from github
-..a.	Git clone –recursive https://github.com/MLHale/insure-layered-solutions-webapp.git
-..b.	Cd CYBR8470-building-a-webservice-lab
+- a.	Git clone –recursive https://github.com/MLHale/insure-layered-solutions-webapp.git
+- b.	Cd CYBR8470-building-a-webservice-lab
 4.	Run docker-compose build
 5.	Run docker-compose up
 
 
 ### Usage Instructions
 1. Enter a choice and a product for Vendor 
-..a. Ex: Cisco VPN
+- a. Ex: Cisco VPN
 
 2. Enter a choice and a product for Vendor 
-..a. Ex: OpenVPN VPN
+- a. Ex: OpenVPN VPN
 
 3. Below is a legend to properly return the most and correct results.
 
