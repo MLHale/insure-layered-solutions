@@ -42,7 +42,7 @@ We ultimately achieved our end goal of creating a web application that allows a 
 - Research US Cert and NVD databases.
 - Model Vulnerabilities, exploits, patches, and patch windows.
 - Successfully code a [Python script](https://github.com/MLHale/insure-layered-solutions/blob/master/python/vulnSearch.py) to extract desired data from the National Vulnerability Database and US Cert Database.
-- Create a web application to allow for user input of VPN vendors and timeframe.
+- Create a [web application](http://layeredsolutions.mlhale.com/) to allow for user input of VPN vendors and timeframe.
 - Render the results in a [timeline](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/Vuln_timeline.PNG) of vulnerabilities by vendor and places of overlapping vulnerabilities.
 - Display [CVE information](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/cvelist_screenshot.PNG) below the timeline and link to the actual CVE web pages for more detail.
 - Made a [keyword list](https://github.com/MLHale/insure-layered-solutions/blob/master/GantCharts/keywordlist.docx) to search for VPN vendors 
@@ -102,6 +102,7 @@ Install instructions
 
 6.	Open web browser and go to localhost
 
+Link to the website http://layeredsolutions.mlhale.com/
 
 ### Usage Instructions
 1. Enter a choice and a product for Vendor (note must include two words Eg: (vendor) (product))
